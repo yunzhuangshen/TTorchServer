@@ -1,7 +1,6 @@
 package au.edu.rmit.trajectory.torch.mapMatching.algorithm;
 
 import au.edu.rmit.trajectory.torch.base.helper.GeoUtil;
-import au.edu.rmit.trajectory.torch.base.helper.MemoryUsage;
 import au.edu.rmit.trajectory.torch.base.Torch;
 import au.edu.rmit.trajectory.torch.mapMatching.MMProperties;
 import au.edu.rmit.trajectory.torch.mapMatching.MapMatching;
@@ -228,7 +227,6 @@ public class TorGraph {
             allPoints.put(vertex.hash, vertex);
         }
 
-        MemoryUsage.printCurrentMemUsage("[after loadding all vertices]");
         AllEdgesIterator allEdgeIterator = graph.getAllEdges();
 
         // model all edges; two issues are taken into consideration:
@@ -292,8 +290,6 @@ public class TorGraph {
             }
         }
 
-        MemoryUsage.printCurrentMemUsage("[after loading all edges]");
-
         // indexAll density to sparse edge to increase map-matching accuracy.
         for (TorEdge edge : allEdges.values()) {
             if (edge.getPillarVertexes().size() == 0 && GeoUtil.distance(edge.baseVertex, edge.adjVertex) >= SPARSE_THRESHOLD * 2) {
@@ -343,7 +339,6 @@ public class TorGraph {
             rTree = rTree.add(vertex, Geometries.pointGeographic(vertex.getLng(), vertex.getLat()));
         }
 
-        MemoryUsage.printCurrentMemUsage("[after inserting all vertices to rtree]");
         logger.info("Exit - graph has been built. There are {} edges, {} points including {} tower points.", allEdges.size(), allPoints.size(), towerVertexes.size());
     }
 

@@ -1,10 +1,10 @@
-
-.DS_Store
+out
+legacy
 local
 map-data
 T_set
 target
 T-Torch
-src/main/java/au/edu/rmit/trajectory/similarity
+similarity
 src/main/java/au/edu/rmit/trajectory/Test
 src/test/java/au/edu/rmit/trajectory/similarity

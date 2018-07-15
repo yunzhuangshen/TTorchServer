@@ -1,7 +1,6 @@
 package au.edu.rmit.trajectory.torch.queryEngine.query;
 
 import au.edu.rmit.trajectory.torch.base.Torch;
-import au.edu.rmit.trajectory.torch.base.helper.MemoryUsage;
 import au.edu.rmit.trajectory.torch.base.model.Coordinate;
 import au.edu.rmit.trajectory.torch.base.model.TrajEntry;
 import au.edu.rmit.trajectory.torch.base.model.Trajectory;
@@ -29,9 +28,7 @@ class TrajectoryResolver {
         rawEdgeLookup = new HashMap<>();
         loadEdgeRepresentedTrajectories();
         loadRawEdgeLookupTable();
-
-        printStats();
-    }
+        }
 
     QueryResult resolve (List<String> trajIds, List<TrajEntry> rawQuery, Trajectory<TrajEntry> _mappedQuery){
 
@@ -137,13 +134,4 @@ class TrajectoryResolver {
             throw new RuntimeException("some critical data is missing, system on exit...");
         }
     }
-
-    /**
-     * for purpose of memory inspection
-     */
-    private void printStats() {
-        MemoryUsage.printObjectMemUsage("trajectory edge representation", trajectoryPool);
-        MemoryUsage.printObjectMemUsage("raw-edge-lookup-table", rawEdgeLookup);
-    }
-
 }

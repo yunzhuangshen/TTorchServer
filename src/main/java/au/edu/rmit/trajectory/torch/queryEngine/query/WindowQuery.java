@@ -2,9 +2,6 @@ package au.edu.rmit.trajectory.torch.queryEngine.query;
 
 import au.edu.rmit.trajectory.torch.base.WindowQueryIndex;
 import au.edu.rmit.trajectory.torch.base.model.TrajEntry;
-import au.edu.rmit.trajectory.torch.base.model.Trajectory;
-import au.edu.rmit.trajectory.torch.base.persistance.TrajectoryMap;
-import au.edu.rmit.trajectory.torch.mapMatching.model.TowerVertex;
 import au.edu.rmit.trajectory.torch.queryEngine.model.SearchWindow;
 
 import java.util.ArrayList;

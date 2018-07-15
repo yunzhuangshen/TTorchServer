@@ -18,12 +18,12 @@ abstract class TrajJsonFormater {
 
         List<TrajJsonModel> models = new ArrayList<>(retTrajs.size()+2);
 
-        System.out.println(gson.toJson((new TrajJsonModel(retTrajs.get(0), "grey"))));
-        System.out.println(gson.toJson((new TrajJsonModel(retTrajs.get(1), "grey"))));
-        System.out.println(gson.toJson((new TrajJsonModel(retTrajs.get(2), "grey"))));
-        System.out.println(gson.toJson((new TrajJsonModel(retTrajs.get(3), "grey"))));
-        System.out.println(gson.toJson((new TrajJsonModel(retTrajs.get(4), "grey"))));
-
+//        System.out.println(gson.toJson((new TrajJsonModel(raw, "grey"))));
+//        System.out.println(gson.toJson((new TrajJsonModel(retTrajs.get(0), "grey"))));
+//        System.out.println(gson.toJson((new TrajJsonModel(retTrajs.get(1), "grey"))));
+//        System.out.println(gson.toJson((new TrajJsonModel(retTrajs.get(2), "grey"))));
+//        System.out.println(gson.toJson((new TrajJsonModel(retTrajs.get(3), "grey"))));
+//        System.out.println(gson.toJson((new TrajJsonModel(retTrajs.get(4), "grey"))));
 
         models.add(new TrajJsonModel(raw, "grey"));
         models.add(new TrajJsonModel(mapped, "red"));

@@ -4,7 +4,6 @@ import au.edu.rmit.trajectory.torch.mapMatching.algorithm.Mapper;
 import au.edu.rmit.trajectory.torch.mapMatching.algorithm.Mappers;
 import au.edu.rmit.trajectory.torch.mapMatching.algorithm.TorDijkstra;
 import au.edu.rmit.trajectory.torch.mapMatching.algorithm.TorGraph;
-import au.edu.rmit.trajectory.torch.base.helper.MemoryUsage;
 import au.edu.rmit.trajectory.torch.base.Torch;
 import au.edu.rmit.trajectory.torch.mapMatching.model.TowerVertex;
 import au.edu.rmit.trajectory.torch.base.model.TrajEntry;
@@ -83,15 +82,12 @@ public class MapMatching {
 
         TorSaver saver = new TorSaver();
         TrajReader reader = new TrajReader(props);
-        MemoryUsage.start();
 
         //readBatch and build graph
         if (graph == null) {
             graph = TorGraph.getInstance().
                     initGH(Torch.URI.HOPPER_META, props.osmPath, props.vehicleType);
-            MemoryUsage.printCurrentMemUsage("[after init graph hopper]");
             graph.build(props);
-            MemoryUsage.printCurrentMemUsage("[after build tor graph]");
         }
 
         mapper = Mappers.getMapper(props.mmAlg, graph);
@@ -99,8 +95,6 @@ public class MapMatching {
         //readBatch trajectory data in batch from file
         List<Trajectory<TrajEntry>> rawTrajs = new LinkedList<>();
         while ( !reader.readBatch(props.trajSrcPath, null, rawTrajs)) {
-
-            MemoryUsage.printCurrentMemUsage("[after loading trajectories]");
 
             //do map-matching
             List<Trajectory<TowerVertex>> mappedTrajectories = mapper.batchMatch(rawTrajs);

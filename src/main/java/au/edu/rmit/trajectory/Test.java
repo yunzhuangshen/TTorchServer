@@ -1,16 +1,12 @@
 package au.edu.rmit.trajectory;
 
 import au.edu.rmit.trajectory.torch.base.Torch;
-import au.edu.rmit.trajectory.torch.base.helper.MemoryUsage;
 import au.edu.rmit.trajectory.torch.base.invertedIndex.EdgeInvertedIndex;
 import au.edu.rmit.trajectory.torch.base.invertedIndex.VertexInvertedIndex;
 import au.edu.rmit.trajectory.torch.base.model.*;
-import au.edu.rmit.trajectory.torch.mapMatching.MapMatching;
 import au.edu.rmit.trajectory.torch.mapMatching.model.TowerVertex;
 import au.edu.rmit.trajectory.torch.queryEngine.Engine;
 import au.edu.rmit.trajectory.torch.queryEngine.query.QueryResult;
-import net.sourceforge.sizeof.SizeOf;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +17,10 @@ public class Test {
 //        mm.start();
 
         List<List<TrajEntry>> queries = read();
-        Engine engine = Engine.getBuilder().preferedIndex(Torch.Index.LEVI).preferedSimilarityMeasure(Torch.Algorithms.DTW).build();
-        QueryResult ret = engine.findTopK(queries.get(1), 5);
+        Engine engine = Engine.getBuilder().preferedIndex(Torch.Index.LEVI).preferedSimilarityMeasure(Torch.Algorithms.Frechet).build();
+        QueryResult ret = engine.findTopK(queries.get(0), 15);
         //System.out.println(ret.getMapVFormat());
-        ret.getMapVFormat();
+        System.out.println(ret.getMapVFormat());
 
 //        genEdgeInvertedIndex();
 //        genVertexInvertedIndex();
@@ -136,14 +132,11 @@ public class Test {
         String[] tokens;
         String[] edges;
 
-        MemoryUsage.start();
-
         int i = 0;
         while((line = bufferedReader.readLine()) != null){
 
             if (++i % 100000 == 0){
                 System.err.println("current progress: "+i);
-                MemoryUsage.printCurrentMemUsage("");
                 if (i == 200000) break;
             }
             tokens = line.split("\t");
@@ -158,7 +151,6 @@ public class Test {
 
             edgeInvertedIndex.index(t);
         }
-        MemoryUsage.printCurrentMemUsage("");
 
         edgeInvertedIndex.saveCompressed(Torch.URI.EDGE_INVERTED_INDEX);
     }
@@ -172,14 +164,11 @@ public class Test {
         String[] tokens;
         String[] vertices;
 
-        MemoryUsage.start();
-
         int i = 0;
         while((line = bufferedReader.readLine()) != null){
 
             if (++i % 100000 == 0){
                 System.err.println("current progress: "+i);
-                MemoryUsage.printCurrentMemUsage("");
                 if (i == 200000) break;
             }
             tokens = line.split("\t");
@@ -194,7 +183,6 @@ public class Test {
 
             vertexInvertedIndex.index(t);
         }
-        MemoryUsage.printCurrentMemUsage("");
 
         vertexInvertedIndex.saveCompressed(Torch.URI.VERTEX_INVERTED_INDEX);
     }
