@@ -2,92 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="055b8296-f517-41c0-af5d-739a9860535b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/legacy/src/AppEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/Common.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/Effectiveness.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/EfficiencyExp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/algorithm/Dijkstra.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/algorithm/EditDistanceonRealSequence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/algorithm/FastTimeSeriesEvaluation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/algorithm/LongestCommonSubsequence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/algorithm/MM_Alg/FastMapMatching.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/algorithm/MapMatching2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/algorithm/Mapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/algorithm/SimilarityMeasure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/algorithm/TrajectoryMapping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/algorithm/Transformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/aspect/TimeAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/config/DataConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/datastructure/ComplexTraGridIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/datastructure/EdgeInvertedIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/datastructure/EdgeInvertedIndexNoPos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/datastructure/FibonacciHeap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/datastructure/GridIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/datastructure/Index.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/datastructure/NodeGridIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/datastructure/NodeInvertedIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/datastructure/RTreeWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/datastructure/TraGridIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/exception/FilePathNotFindException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/io/BeijingDataset.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/io/Dataset.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/model/ComplexGridIndexPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/model/Edge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/model/GridIndexPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/model/MMEdge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/model/MMPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/model/MapMatchedTrajectory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/model/Pair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/model/Point.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/model/Segment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/model/Trajectory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/persistence/MMEdgeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/persistence/MapMatchedTrajectoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/persistence/PointMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/persistence/SegmentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/persistence/TrajectoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/query/KNearestNeighbors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/query/MatchMode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/query/ShortestPathQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/service/MMEdgeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/service/MapMatchedTrajectoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/service/SegmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/service/TrajectoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/service/impl/MMEdgeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/service/impl/MapMatchedTrajectoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/service/impl/SegmentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/service/impl/TrajectoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/task/MeasureType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/task/PortoTrajectoryFormatTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/task/TrajectoryConvertTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/task/TrajectoryKNearestNumberTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/task/TrajectoryKNearestNumberTaskWithInvertedIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/task/formatter/LineFormatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/task/formatter/TrajectoryStringFormatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/util/CommonUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/src/util/GeoUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/torch-trajectory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/torch-trajectory.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local-lib/SizeOf.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/base/helper/MemoryUsage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/base/invertedIndex/InvertedIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/base/invertedIndex/InvertedIndex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/MapMatching.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/MapMatching.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/algorithm/TorGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/algorithm/TorGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/QueryPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/QueryPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TopKQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TopKQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TrajJsonFormater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TrajJsonFormater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TrajectoryResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TrajectoryResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/WindowQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/WindowQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/au/edu/rmit/trajectory/torch/GeneralTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/au/edu/rmit/trajectory/torch/base/invertedIndex/InvertedIndexTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/au/edu/rmit/trajectory/torch/dataStructure/TorGraphTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/au/edu/rmit/trajectory/torch/mapMatching/io/HiddenMarkovModelTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/au/edu/rmit/trajectory/torch/mapMatching/io/TorPipeTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/au/edu/rmit/trajectory/torch/queryEngine/EngineTest.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -104,11 +22,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+            <state relative-caret-position="164">
+              <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,7 +37,7 @@
       <file leaf-file-name="Engine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
+            <state relative-caret-position="510">
               <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
               <folding>
                 <element signature="e#960#961#0" expanded="true" />
@@ -131,7 +52,7 @@
       <file leaf-file-name="TorGraph.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/algorithm/TorGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
+            <state relative-caret-position="4725">
               <caret line="341" selection-start-line="341" selection-end-line="341" />
             </state>
           </provider>
@@ -149,8 +70,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+            <state relative-caret-position="622">
+              <caret line="109" column="4" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -158,8 +79,8 @@
       <file leaf-file-name="TrajJsonFormater.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TrajJsonFormater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="180">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -167,7 +88,7 @@
       <file leaf-file-name="InvertedIndex.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/base/invertedIndex/InvertedIndex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
+            <state relative-caret-position="2775">
               <caret line="198" selection-start-line="198" selection-end-line="198" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -176,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QueryPool.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="QueryPool.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/QueryPool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="181" selection-start-line="181" selection-end-line="181" />
+            <state relative-caret-position="105">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -188,7 +109,7 @@
       <file leaf-file-name="MapMatching.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/MapMatching.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="1230">
               <caret line="97" selection-start-line="97" selection-end-line="97" />
             </state>
           </provider>
@@ -306,14 +227,14 @@
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/base/spatialIndex/LEVI.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/WindowQuery.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TopKQuery.java" />
-        <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TrajJsonFormater.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/base/invertedIndex/InvertedIndex.java" />
-        <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/MapMatching.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/algorithm/TorGraph.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TrajectoryResolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/QueryPool.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TrajJsonFormater.java" />
+        <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/Test.java" />
       </list>
     </option>
   </component>
@@ -345,6 +266,11 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="T-Torch" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="T-Torch" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
       </expand>
@@ -352,8 +278,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-28" />
-    <option name="y" value="23" />
+    <option name="x" value="1" />
+    <option name="y" value="37" />
     <option name="width" value="1440" />
     <option name="height" value="796" />
   </component>
@@ -392,6 +318,26 @@
               <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
               <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
@@ -436,15 +382,26 @@
             <path>
               <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
               <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
+              <item name="T_set" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="maven-archiver" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -478,11 +435,11 @@
       <recent name="au.edu.rmit.trajectory.torch.mapMatching.algorithm" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/T_set" />
       <recent name="$PROJECT_DIR$/legacy" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/local-lib" />
       <recent name="$PROJECT_DIR$/T-Torch" />
-      <recent name="$PROJECT_DIR$/T-Torch/T-Torch" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/target/classes" />
@@ -801,7 +758,11 @@
       <workItem from="1531401208087" duration="261000" />
       <workItem from="1531401588150" duration="31447000" />
       <workItem from="1531621122913" duration="1238000" />
-      <workItem from="1531633535641" duration="2555000" />
+      <workItem from="1531633535641" duration="3284000" />
+      <workItem from="1531637673233" duration="883000" />
+      <workItem from="1531642561084" duration="17000" />
+      <workItem from="1531642641674" duration="5009000" />
+      <workItem from="1531722840103" duration="539000" />
     </task>
     <servers />
   </component>
@@ -838,7 +799,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="410277000" />
+    <option name="totallyTimeSpent" value="417454000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -850,7 +811,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-28" y="23" width="1440" height="796" extended-state="0" />
+    <frame x="1" y="37" width="1440" height="796" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" x="30" y="319" width="1377" height="229" id="TODO" order="6" weight="0.32761088" />
@@ -859,15 +820,14 @@
       <window_info id="Image Layers" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50143063" side_tool="true" weight="0.2074392" />
-      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.07367668" />
+      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.18311875" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4990476" visible="true" weight="0.45922747" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4990476" visible="true" weight="0.3590844" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32904148" />
-      <window_info anchor="right" id="Coverage" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4985694" weight="0.44062948" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4985694" weight="0.06437768" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.2532189" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.26752505" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -875,13 +835,14 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Spring" order="11" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32761088" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -896,10 +857,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/model/PillarVertex.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/MapMatching.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="1230">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
         </state>
       </provider>
     </entry>
@@ -1152,16 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TrajJsonFormater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
@@ -1172,23 +1123,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/au/edu/rmit/trajectory/similarity/algorithm/TestLongestCommonSubsequence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/base/helper/MemoryUsage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" selection-start-line="2" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/au/edu/rmit/trajectory/similarity/algorithm/TestLongestCommonSubsequence.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/base/helper/MemoryUsage.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/base/invertedIndex/InvertedIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
+        <state relative-caret-position="2775">
           <caret line="198" selection-start-line="198" selection-end-line="198" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1196,23 +1135,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/MapMatching.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+        <state relative-caret-position="1230">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/MapMatching.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/au/edu/rmit/trajectory/torch/dataStructure/TorGraphTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/QueryPool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="97" selection-start-line="97" selection-end-line="97" />
+        <state relative-caret-position="105">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/Engine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
+        <state relative-caret-position="510">
           <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
           <folding>
             <element signature="e#960#961#0" expanded="true" />
@@ -1225,7 +1165,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/mapMatching/algorithm/TorGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
+        <state relative-caret-position="4725">
           <caret line="341" selection-start-line="341" selection-end-line="341" />
         </state>
       </provider>
@@ -1237,27 +1177,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/au/edu/rmit/trajectory/torch/dataStructure/TorGraphTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/TrajJsonFormater.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        <state relative-caret-position="622">
+          <caret line="109" column="4" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/QueryPool.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="181" selection-start-line="181" selection-end-line="181" />
+        <state relative-caret-position="164">
+          <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

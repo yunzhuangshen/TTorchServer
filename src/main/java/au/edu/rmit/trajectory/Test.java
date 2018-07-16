@@ -18,7 +18,7 @@ public class Test {
 
         List<List<TrajEntry>> queries = read();
         Engine engine = Engine.getBuilder().preferedIndex(Torch.Index.LEVI).preferedSimilarityMeasure(Torch.Algorithms.Frechet).build();
-        QueryResult ret = engine.findTopK(queries.get(0), 15);
+        QueryResult ret = engine.findTopK(queries.get(1), 3);
         //System.out.println(ret.getMapVFormat());
         System.out.println(ret.getMapVFormat());
 
