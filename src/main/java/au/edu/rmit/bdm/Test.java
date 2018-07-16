@@ -1,12 +1,12 @@
 package au.edu.rmit.bdm;
 
-import au.edu.rmit.bdm.T_Torch.base.Torch;
-import au.edu.rmit.bdm.T_Torch.base.invertedIndex.EdgeInvertedIndex;
-import au.edu.rmit.bdm.T_Torch.base.invertedIndex.VertexInvertedIndex;
-import au.edu.rmit.bdm.T_Torch.base.model.*;
-import au.edu.rmit.bdm.T_Torch.mapMatching.model.TowerVertex;
-import au.edu.rmit.bdm.T_Torch.queryEngine.Engine;
-import au.edu.rmit.bdm.T_Torch.queryEngine.query.QueryResult;
+import au.edu.rmit.bdm.TTorch.base.Torch;
+import au.edu.rmit.bdm.TTorch.base.invertedIndex.EdgeInvertedIndex;
+import au.edu.rmit.bdm.TTorch.base.invertedIndex.VertexInvertedIndex;
+import au.edu.rmit.bdm.TTorch.base.model.*;
+import au.edu.rmit.bdm.TTorch.mapMatching.model.TowerVertex;
+import au.edu.rmit.bdm.TTorch.queryEngine.Engine;
+import au.edu.rmit.bdm.TTorch.queryEngine.query.QueryResult;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

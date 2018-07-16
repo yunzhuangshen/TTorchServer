@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="torch-trajectory:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="T-Torch.war">
+      <element id="artifact" artifact-name="torch-trajectory:war exploded" />
+    </root>
+  </artifact>
+</component>
