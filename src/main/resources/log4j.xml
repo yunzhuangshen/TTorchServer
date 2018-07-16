@@ -8,7 +8,7 @@
 		</layout>
 	</appender>
 
-	<logger name="au.edu.rmit.trajectory.torch">
+	<logger name="au.edu.rmit.bdm.T_Torch">
 		<level value="DEBUG"></level>
 		<appender-ref ref="consoleAppender" />
 	</logger>
