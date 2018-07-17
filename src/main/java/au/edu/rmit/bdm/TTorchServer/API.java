@@ -4,8 +4,12 @@ import au.edu.rmit.trajectory.torch.base.model.Coordinate;
 import au.edu.rmit.trajectory.torch.base.model.TrajEntry;
 import au.edu.rmit.trajectory.torch.queryEngine.Engine;
 import au.edu.rmit.trajectory.torch.queryEngine.model.SearchWindow;
+
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 class API {
     private Engine engine;
