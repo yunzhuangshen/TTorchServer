@@ -1,8 +1,5 @@
 package au.edu.rmit.bdm.TTorchServer;
 
-import au.edu.rmit.trajectory.torch.base.model.Coordinate;
-import au.edu.rmit.trajectory.torch.base.model.TrajEntry;
-import au.edu.rmit.trajectory.torch.queryEngine.Engine;
 import java.util.ArrayList;
 import java.util.List;
 
