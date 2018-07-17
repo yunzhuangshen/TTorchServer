@@ -1,17 +1,25 @@
 package au.edu.rmit.bdm.TTorchServer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import spark.Spark;
 import spark.servlet.SparkApplication;
 import static spark.Spark.get;
 import static spark.Spark.staticFiles;
 
 public class App implements SparkApplication {
+    Logger logger = LoggerFactory.getLogger(App.class);
     public static void main(String[] args){Spark.init();}    //added to make maven compiler working properly
 
     private API api;
 
     @Override
     public void init() {
+        System.out.println("abc");
+        logger.error("abc");
+        Spark.exception(Exception.class, (exception, request, response) -> {
+            exception.printStackTrace();
+        });
         staticFiles.location("/public");
         initMainPage();
         initAPI();

@@ -26,7 +26,7 @@
 
         <dependency>
             <groupId>au.edu.rmit.bdm</groupId>
-            <artifactId></artifactId>
+            <artifactId>TTorch</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

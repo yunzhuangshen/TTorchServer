@@ -1,5 +1,9 @@
 package au.edu.rmit.bdm.TTorchServer;
 
+import au.edu.rmit.bdm.TTorch.base.model.Coordinate;
+import au.edu.rmit.bdm.TTorch.base.model.TrajEntry;
+import au.edu.rmit.bdm.TTorch.queryEngine.Engine;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +11,7 @@ class API {
     private Engine engine;
 
     API(){
-        engine = Engine.getBuilder().build();
+        engine = Engine.getBuilder().baseURI(getClass().getClassLoader().getResource("").getPath()).build();
     }
 
 

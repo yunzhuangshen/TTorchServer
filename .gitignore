@@ -1,3 +1,5 @@
+.*
+!/.gitignore
 out
 legacy
 local
