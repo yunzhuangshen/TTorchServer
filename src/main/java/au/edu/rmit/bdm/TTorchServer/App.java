@@ -1,5 +1,8 @@
 package au.edu.rmit.bdm.TTorchServer;
 
+import au.edu.rmit.bdm.TTorch.queryEngine.Engine;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spark.Spark;
@@ -8,14 +11,19 @@ import static spark.Spark.get;
 import static spark.Spark.staticFiles;
 
 public class App implements SparkApplication {
-    Logger logger = LoggerFactory.getLogger(App.class);
-    public static void main(String[] args){Spark.init();}    //added to make maven compiler working properly
+    static Logger logger = LoggerFactory.getLogger(App.class);
+    public static void main(String[] args){
+        BasicConfigurator.resetConfiguration();
+        PropertyConfigurator.configure(App.class.getResourceAsStream("/log4j.properties"));
+        Spark.init();
+    }    //added to make maven compiler working properly
 
     private API api;
 
     @Override
     public void init() {
-        System.out.println("abc");
+        BasicConfigurator.resetConfiguration();
+        PropertyConfigurator.configure(App.class.getResourceAsStream("/log4j.properties"));
         logger.error("abc");
         Spark.exception(Exception.class, (exception, request, response) -> {
             exception.printStackTrace();

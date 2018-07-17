@@ -1,0 +1,12 @@
+18/07/17 19:54:51 INFO log: Logging initialized @582ms
+18/07/17 19:54:51 INFO EmbeddedJettyServer: == Spark has ignited ...
+18/07/17 19:54:51 INFO EmbeddedJettyServer: >> Listening on 0.0.0.0:4567
+18/07/17 19:54:51 INFO Server: jetty-9.3.6.v20151106
+18/07/17 19:54:51 INFO ServerConnector: Started ServerConnector@339d7c9f{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+18/07/17 19:54:51 INFO Server: Started @713ms
+18/07/17 19:55:18 INFO log: Logging initialized @605ms
+18/07/17 19:55:18 INFO EmbeddedJettyServer: == Spark has ignited ...
+18/07/17 19:55:18 INFO EmbeddedJettyServer: >> Listening on 0.0.0.0:4567
+18/07/17 19:55:18 INFO Server: jetty-9.3.6.v20151106
+18/07/17 19:55:18 INFO ServerConnector: Started ServerConnector@438c8a7e{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+18/07/17 19:55:18 INFO Server: Started @749ms

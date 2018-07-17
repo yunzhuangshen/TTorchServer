@@ -48,10 +48,10 @@
           <element id="library" level="project" name="Maven: com.vividsolutions:jts:1.13" />
           <element id="library" level="project" name="Maven: org.openstreetmap.osmosis:osmosis-osm-binary:0.45" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:2.6.1" />
-          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: com.graphhopper.external:hmm-lib:1.0.0" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.25" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.6" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.5" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
         </element>
       </element>
       <element id="directory" name="META-INF">

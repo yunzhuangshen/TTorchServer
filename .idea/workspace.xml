@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="055b8296-f517-41c0-af5d-739a9860535b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/torch_trajectory_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/torch_trajectory_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__au_edu_rmit_bdm_error_1_0_SNAPSHOT.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/torch-trajectory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/torch-trajectory.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/API.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="367">
+              <first_editor relative-caret-position="750">
                 <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
               </first_editor>
               <second_editor />
@@ -46,17 +42,17 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+            <state relative-caret-position="540">
+              <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+            <state relative-caret-position="107">
+              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,32 +60,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log4j.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Engine.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/au/edu/rmit/bdm/TTorch/1.0-SNAPSHOT/TTorch-1.0-SNAPSHOT.jar!/au/edu/rmit/bdm/TTorch/queryEngine/Engine.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropertyConfigurator.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/PropertyConfigurator.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="API.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/API.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="13" column="98" selection-start-line="13" selection-start-column="98" selection-end-line="13" selection-end-column="98" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="234">
+              <caret line="60" column="41" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -101,6 +85,25 @@
               <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="API.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/API.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#296#297#0" expanded="true" />
+                <element signature="e#411#412#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/log4j.log">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -172,7 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/model/QueryProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/model/TrajJsonFormater.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/Query.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/base/WindowQueryIndex.java" />
@@ -221,8 +223,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/log4j.xml" />
         <option value="$PROJECT_DIR$/target/classes/log4j.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/App.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/App.java" />
+        <option value="$PROJECT_DIR$/log4j.log" />
       </list>
     </option>
   </component>
@@ -231,6 +234,13 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -266,8 +276,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="15" />
-    <option name="y" value="440" />
+    <option name="y" value="35" />
     <option name="width" value="1440" />
     <option name="height" value="796" />
   </component>
@@ -280,17 +289,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
               <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
@@ -390,28 +396,10 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
-              <item name="T-Torch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -478,6 +466,7 @@
   </component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <log_file alias="spark" path="$PROJECT_DIR$/log4j.log" />
       <option name="MAIN_CLASS_NAME" value="au.edu.rmit.bdm.TTorchServer.App" />
       <module name="torch-trajectory" />
       <option name="VM_PARAMETERS" value="-Xms4g -Xmx6g" />
@@ -758,6 +747,8 @@
       <workItem from="1531797552423" duration="1571000" />
       <workItem from="1531802057229" duration="239000" />
       <workItem from="1531804210551" duration="3811000" />
+      <workItem from="1531808557845" duration="2626000" />
+      <workItem from="1531819594289" duration="1630000" />
     </task>
     <servers />
   </component>
@@ -794,7 +785,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="430325000" />
+    <option name="totallyTimeSpent" value="434581000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -806,41 +797,41 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="15" y="440" width="1440" height="796" extended-state="0" />
+    <frame x="0" y="35" width="1440" height="796" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50214595" side_tool="true" weight="0.3590844" />
-      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.18311875" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" x="30" y="319" width="1377" height="229" id="TODO" order="6" weight="0.32761088" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.21316166" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="1" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" visible="true" weight="0.32840237" />
+      <window_info anchor="bottom" id="Java Enterprise" order="7" weight="0.32840237" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50214595" side_tool="true" weight="0.3590844" />
+      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.18311875" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.23372781" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" weight="0.22485207" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" visible="true" weight="0.37278107" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4985694" weight="0.19456366" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.49779737" visible="true" weight="0.23676682" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.49779737" visible="true" weight="0.24320458" />
       <window_info id="Web" order="3" sideWeight="0.50230414" side_tool="true" weight="0.23676682" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32761088" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" sideWeight="0.50220263" side_tool="true" weight="0.23676682" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Spring" order="12" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32761088" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -881,8 +872,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorch/base/model/Coordinate.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorch/mapMatching/MMProperties.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/graphhopper/graphhopper-core/0.9.0/graphhopper-core-0.9.0-sources.jar!/com/graphhopper/storage/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -953,37 +942,29 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/T-Torch/meta" />
     <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/Test.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/au/edu/rmit/bdm/T-Torch/1.0-SNAPSHOT/T-Torch-1.0-SNAPSHOT.jar!/au/edu/rmit/trajectory/torch/queryEngine/Engine.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.xml" />
+    <entry file="file://$PROJECT_DIR$/target/classes/log4j.xml" />
+    <entry file="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/PropertyConfigurator.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="48" lean-forward="true" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+        <state relative-caret-position="141">
+          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/log4j.xml">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        <state relative-caret-position="540">
+          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="367">
+          <first_editor relative-caret-position="750">
             <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/API.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="13" column="98" selection-start-line="13" selection-start-column="98" selection-end-line="13" selection-end-column="98" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -994,34 +975,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/PropertyConfigurator.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/API.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        <state relative-caret-position="180">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        <state relative-caret-position="234">
+          <caret line="60" column="41" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/au/edu/rmit/bdm/TTorch/1.0-SNAPSHOT/TTorch-1.0-SNAPSHOT.jar!/au/edu/rmit/bdm/TTorch/queryEngine/Engine.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log4j.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
