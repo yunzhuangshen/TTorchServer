@@ -1,6 +1,8 @@
 package au.edu.rmit.bdm.TTorchServer;
 
+import au.edu.rmit.bdm.TTorch.base.Torch;
 import au.edu.rmit.bdm.TTorch.queryEngine.Engine;
+import au.edu.rmit.bdm.TTorch.queryEngine.query.QueryResult;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
@@ -13,13 +15,10 @@ import static spark.Spark.staticFiles;
 public class App implements SparkApplication {
     static Logger logger = LoggerFactory.getLogger(App.class);
 
-//    // added to make maven compiler working properly
-//    public static void main(String[] args){
-////        BasicConfigurator.resetConfiguration();
-////        PropertyConfigurator.configure(App.class.getResourceAsStream("/log4j.properties"));
-////        String basePath = App.class.getResource("/").getPath();
-////        Engine.getBuilder().baseURI(basePath).build();
-//    }
+    // added to make maven compiler working properly
+    public static void main(String[] args){
+        System.err.println(QueryResult.genFailedRet(Torch.QueryType.PathQ,null).toJSON());
+    }
 
     private API api;
 
