@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 
 class Response {
     static Gson gson = new Gson();
+    private static final int MAXIMUM = 200;
 
     boolean formatCorrect;
     String queryResult;
@@ -16,7 +17,7 @@ class Response {
 
     private Response(QueryResult queryResult){
         formatCorrect = true;
-        this.queryResult = queryResult.toJSON();
+        this.queryResult = queryResult.toJSON(MAXIMUM);
     }
 
     static Response genFailed(){
