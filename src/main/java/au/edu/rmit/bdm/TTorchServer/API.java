@@ -3,6 +3,7 @@ package au.edu.rmit.bdm.TTorchServer;
 import au.edu.rmit.bdm.TTorch.base.model.Coordinate;
 import au.edu.rmit.bdm.TTorch.base.model.TrajEntry;
 import au.edu.rmit.bdm.TTorch.queryEngine.Engine;
+import au.edu.rmit.bdm.TTorch.queryEngine.model.SearchWindow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,35 +12,31 @@ class API {
     private Engine engine;
 
     API(){
-        engine = Engine.getBuilder().baseURI(getClass().getClassLoader().getResource("").getPath()).build();
+        String basePath = App.class.getResource("/").getPath();
+        engine = Engine.getBuilder().baseURI(basePath).build();
     }
 
+    //todo
+    String rangeQuery(String query){
 
-    String rangeQuery(String _lat, String _lng, String _range){
-        double  lat = Double.parseDouble(_lat),
-                lng = Double.parseDouble(_lng),
-                range = Double.parseDouble(_range);
+        List<TrajEntry> entries = convert(query);
 
-//        return engine.findInRange(new SearchWindow(new Coordinate(lat, lng), range)).getMapVFormat();
-        return "hello world";
+        return engine.findInRange(new SearchWindow(entries.get(0), entries.get(1)).getRetMapVformat();
     }
 
     String pathQuery(String query){
-//        List<? extends TrajEntry> queryPath = convert(query);
-//        return engine.findOnPath(queryPath).getMapVFormat();
-        return "hello world";
+        List<? extends TrajEntry> queryPath = convert(query);
+        return engine.findOnPath(queryPath).getRetMapVformat();
     }
 
     String strictPathQuery(String query){
-//        List<? extends TrajEntry> queryPath = convert(query);
-//        return engine.findOnStrictPath(queryPath).getMapVFormat();
-        return "hello world";
+        List<? extends TrajEntry> queryPath = convert(query);
+        return engine.findOnStrictPath(queryPath).getRetMapVformat();
     }
 
     String similarityQuery(String query, int k){
-//        List<? extends TrajEntry> queryPath = convert(query);
-//        return engine.findTopK(queryPath, k).getMapVFormat();
-        return "hello world";
+        List<? extends TrajEntry> queryPath = convert(query);
+        return engine.findTopK(queryPath, k).getRetMapVformat();
     }
 
     private List<TrajEntry> convert(String coords){

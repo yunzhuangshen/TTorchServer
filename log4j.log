@@ -10,3 +10,32 @@
 18/07/17 19:55:18 INFO Server: jetty-9.3.6.v20151106
 18/07/17 19:55:18 INFO ServerConnector: Started ServerConnector@438c8a7e{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
 18/07/17 19:55:18 INFO Server: Started @749ms
+18/07/17 20:40:59 ERROR QueryPool: some critical data is missing, system on exit...
+18/07/17 20:41:12 INFO TorGraph: from Resources/Porto.osm.pbf, reading graph data into memory
+18/07/17 20:41:12 INFO GraphHopperOSM: version 0.9.0|2017-05-31T11:23:38Z (5,14,4,3,3,2)
+18/07/17 20:41:12 INFO GraphHopperOSM: graph car|RAM_STORE|2D|NoExt|5,14,4,3,3, details:edges:152 574(5MB), nodes:114 171(2MB), name:(1MB), geo:909 473(4MB), bounds:-8.785714964249319,-8.2000009685755,40.900000353902584,41.41999855086204
+18/07/17 20:41:12 INFO TorGraph: have read graph data into memory
+18/07/17 20:41:13 INFO TrajectoryResolver: load edge represented trajectories
+18/07/17 20:41:14 INFO TrajectoryResolver: load raw edge lookup table
+18/07/17 20:41:14 INFO InvertedIndex: build up inverted index
+18/07/17 20:41:16 INFO InvertedIndex: inverted index build complete
+18/07/17 20:41:19 INFO InvertedIndex: build up inverted index
+18/07/17 20:41:21 INFO InvertedIndex: inverted index build complete
+18/07/17 20:41:21 INFO VertexGridIndex: build spatial vertexGridIndex
+18/07/17 20:41:21 INFO VertexGridIndex: start to insert points, grid location: (lowerLat,leftLng)=(40.900005,-8.785715), (upperLat,rightLng)=(41.419975,-8.200057), (deltaLat,deltaLon,horizontalTileNumber,verticalTileNumber)=(8.9960196E-4,0.001200119,488,578)  grid size: 488*578=282064, point size: 60287
+18/07/17 20:41:21 INFO VertexGridIndex: grid index build complete
+18/07/17 20:44:22 INFO App: /Users/joeyshen/IdeaProjects/torch-trajectory/target/classes/au/edu/rmit/bdm/TTorchServer/
+18/07/17 20:44:41 INFO App: /Users/joeyshen/IdeaProjects/torch-trajectory/target/classes/
+18/07/17 20:45:01 INFO App: /Users/joeyshen/IdeaProjects/torch-trajectory/target/classes/
+18/07/17 20:45:06 INFO App: /Users/joeyshen/IdeaProjects/torch-trajectory/target/classes/au/edu/rmit/bdm/TTorchServer/
+18/07/17 20:45:41 INFO App: /Users/joeyshen/IdeaProjects/torch-trajectory/target/classes/
+18/07/17 20:46:43 ERROR QueryPool: some critical data is missing, system on exit...
+18/07/17 20:47:13 ERROR QueryPool: some critical data is missing, system on exit...
+18/07/17 20:47:24 INFO TorGraph: from Resources/Porto.osm.pbf, reading graph data into memory
+18/07/17 20:47:24 INFO GraphHopperOSM: version 0.9.0|2017-05-31T11:23:38Z (5,14,4,3,3,2)
+18/07/17 20:47:24 INFO GraphHopperOSM: graph car|RAM_STORE|2D|NoExt|5,14,4,3,3, details:edges:152 574(5MB), nodes:114 171(2MB), name:(1MB), geo:909 473(4MB), bounds:-8.785714964249319,-8.2000009685755,40.900000353902584,41.41999855086204
+18/07/17 20:47:24 INFO TorGraph: have read graph data into memory
+18/07/17 20:47:25 INFO TrajectoryResolver: load edge represented trajectories
+18/07/17 20:47:27 INFO TrajectoryResolver: load raw edge lookup table
+18/07/17 20:47:27 INFO InvertedIndex: build up inverted index
+18/07/17 20:47:28 INFO InvertedIndex: inverted index build complete

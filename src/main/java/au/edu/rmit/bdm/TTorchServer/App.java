@@ -12,11 +12,14 @@ import static spark.Spark.staticFiles;
 
 public class App implements SparkApplication {
     static Logger logger = LoggerFactory.getLogger(App.class);
-    public static void main(String[] args){
-        BasicConfigurator.resetConfiguration();
-        PropertyConfigurator.configure(App.class.getResourceAsStream("/log4j.properties"));
-        Spark.init();
-    }    //added to make maven compiler working properly
+
+//    // added to make maven compiler working properly
+//    public static void main(String[] args){
+////        BasicConfigurator.resetConfiguration();
+////        PropertyConfigurator.configure(App.class.getResourceAsStream("/log4j.properties"));
+////        String basePath = App.class.getResource("/").getPath();
+////        Engine.getBuilder().baseURI(basePath).build();
+//    }
 
     private API api;
 
@@ -24,10 +27,7 @@ public class App implements SparkApplication {
     public void init() {
         BasicConfigurator.resetConfiguration();
         PropertyConfigurator.configure(App.class.getResourceAsStream("/log4j.properties"));
-        logger.error("abc");
-        Spark.exception(Exception.class, (exception, request, response) -> {
-            exception.printStackTrace();
-        });
+        Spark.exception(Exception.class, (exception, request, response) -> exception.printStackTrace());
         staticFiles.location("/public");
         initMainPage();
         initAPI();
@@ -45,6 +45,6 @@ public class App implements SparkApplication {
         get("/API/PQ", (req, res) -> api.pathQuery(req.params("query")));
         get("/API/SPQ", (req, res) -> api.strictPathQuery(req.params("query")));
         get("/API/TKQ", (req, res) -> api.similarityQuery( req.params("query"), Integer.parseInt(req.params("k"))));
-        get("/API/RQ", (req, res) -> api.rangeQuery(req.params("lng"), req.params("lat"), req.params("radius")));
+        get("/API/RQ", (req, res) -> api.rangeQuery(req.params("query")));
     }
 }
