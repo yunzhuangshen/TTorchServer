@@ -26,12 +26,14 @@ class API {
         List<TrajEntry> entries = convert(query);
         if (entries == null) return Response.genFailed().toJSON();
         QueryResult ret = engine.findInRange(new SearchWindow(entries.get(0), entries.get(1)));
+        logger.info("number of results found: {}", ret.ret.size());
         return Response.genSuccessful(ret).toJSON();
     }
 
     String pathQuery(String query){
         List<? extends TrajEntry> queryPath = convert(query);
         QueryResult ret = engine.findOnPath(queryPath);
+        logger.info("number of results found: {}", ret.ret.size());
         return queryPath == null ? Response.genFailed().toJSON() :
                 Response.genSuccessful(ret).toJSON();
     }
@@ -39,6 +41,7 @@ class API {
     String strictPathQuery(String query){
         List<? extends TrajEntry> queryPath = convert(query);
         QueryResult ret = engine.findOnStrictPath(queryPath);
+        logger.info("number of results found: {}", ret.ret.size());
         return queryPath == null ? Response.genFailed().toJSON() :
                 Response.genSuccessful(ret).toJSON();
     }
@@ -46,6 +49,7 @@ class API {
     String similarityQuery(String query, int k){
         List<? extends TrajEntry> queryPath = convert(query);
         QueryResult ret = engine.findTopK(queryPath, k);
+        logger.info("number of results found: {}", ret.ret.size());
         return queryPath == null ? Response.genFailed().toJSON() :
                 Response.genSuccessful(ret).toJSON();
     }
