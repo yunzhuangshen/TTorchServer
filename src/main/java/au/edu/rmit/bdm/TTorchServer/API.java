@@ -12,9 +12,10 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+
 class API {
     private Engine engine;
-    private static Logger logger = LoggerFactory.getLogger(API.class);
+    private Logger logger = LoggerFactory.getLogger(API.class);
 
     API(){
         String basePath = App.class.getResource("/").getPath();
@@ -22,28 +23,31 @@ class API {
     }
 
     String rangeQuery(String query){
-
         List<TrajEntry> entries = convert(query);
-        return entries == null ? Response.genFailed().toJSON() :
-                Response.genSuccessful(engine.findInRange(new SearchWindow(entries.get(0), entries.get(1)))).toJSON();
+        if (entries == null) return Response.genFailed().toJSON();
+        QueryResult ret = engine.findInRange(new SearchWindow(entries.get(0), entries.get(1)));
+        return Response.genSuccessful(ret).toJSON();
     }
 
     String pathQuery(String query){
         List<? extends TrajEntry> queryPath = convert(query);
+        QueryResult ret = engine.findOnPath(queryPath);
         return queryPath == null ? Response.genFailed().toJSON() :
-                Response.genSuccessful(engine.findOnPath(queryPath)).toJSON();
+                Response.genSuccessful(ret).toJSON();
     }
 
     String strictPathQuery(String query){
         List<? extends TrajEntry> queryPath = convert(query);
+        QueryResult ret = engine.findOnStrictPath(queryPath);
         return queryPath == null ? Response.genFailed().toJSON() :
-                Response.genSuccessful(engine.findOnStrictPath(queryPath)).toJSON();
+                Response.genSuccessful(ret).toJSON();
     }
 
     String similarityQuery(String query, int k){
         List<? extends TrajEntry> queryPath = convert(query);
+        QueryResult ret = engine.findTopK(queryPath, k);
         return queryPath == null ? Response.genFailed().toJSON() :
-                Response.genSuccessful(engine.findTopK(queryPath, k)).toJSON();
+                Response.genSuccessful(ret).toJSON();
     }
 
     /**
@@ -71,7 +75,7 @@ class API {
             return entries;
 
         }catch (Exception e){
-            logger.warn(e.getMessage());
+            logger.warn("cannot model input query: '{}'!", coords);
         }
         return null;
     }

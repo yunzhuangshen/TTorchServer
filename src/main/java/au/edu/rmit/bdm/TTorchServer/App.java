@@ -1,8 +1,6 @@
 package au.edu.rmit.bdm.TTorchServer;
 
 import au.edu.rmit.bdm.TTorch.base.Torch;
-import au.edu.rmit.bdm.TTorch.queryEngine.Engine;
-import au.edu.rmit.bdm.TTorch.queryEngine.query.QueryResult;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
@@ -13,12 +11,7 @@ import static spark.Spark.get;
 import static spark.Spark.staticFiles;
 
 public class App implements SparkApplication {
-    static Logger logger = LoggerFactory.getLogger(App.class);
-
-    // added to make maven compiler working properly
-    public static void main(String[] args){
-
-    }
+    Logger logger = LoggerFactory.getLogger(App.class);
 
     private API api;
 
@@ -28,8 +21,10 @@ public class App implements SparkApplication {
         PropertyConfigurator.configure(App.class.getResourceAsStream("/log4j.properties"));
         Spark.exception(Exception.class, (exception, request, response) -> exception.printStackTrace());
         staticFiles.location("/public");
+        logger.info("start to setup server");
         initMainPage();
         initAPI();
+        logger.info("server setup complete");
     }
 
     private void initMainPage() {
@@ -39,11 +34,55 @@ public class App implements SparkApplication {
         });
     }
 
+    /**
+     * Get a string of JSON format<p>
+     *
+     * key-value map:
+     *
+     * - key: formatCorrect
+     * value: Boolean value indicates if the string passed in could be modeled as a trajectory
+     *
+     * - key: queryResult
+     * value:
+     *    - key: queryType
+     *    @see Torch.QueryType for possible query types as value
+     *
+     *    - key: mappingSucceed:
+     *    value: Boolean value indicates if the process of converting raw trajectory to map-matched trajectory succeeds.
+     *
+     *    - key: raw
+     *    Query in mapV format.
+     *    Or null if the query is of type rangeQuery
+     *
+     *    - key: mapped
+     *    mapmatched query in mapV format.
+     *    Or null if the query is of type rangeQuery
+     *
+     *    - key: retSize
+     *    value: integer indicates number of qualified trajectories found
+     *
+     *    - key: ret
+     *    value: array of qualified trajectories in mapV format
+     */
     private void initAPI() {
+
         api = new API();
-        get("/API/PQ", (req, res) -> api.pathQuery(req.params("query")));
-        get("/API/SPQ", (req, res) -> api.strictPathQuery(req.params("query")));
-        get("/API/TKQ", (req, res) -> api.similarityQuery( req.params("query"), Integer.parseInt(req.params("k"))));
-        get("/API/RQ", (req, res) -> api.rangeQuery(req.params("query")));
+
+        get("/API/PQ", (req, res) -> {
+            logger.info("receive request /API/PQ : {}", req.queryParams("query"));
+            return api.pathQuery(req.queryParams("query"));
+        });
+        get("/API/SPQ", (req, res) -> {
+            logger.info("receive request /API/SPQ : {}", req.queryParams("query"));
+            return api.strictPathQuery(req.queryParams("query"));
+        });
+        get("/API/TKQ", (req, res) -> {
+            logger.info("receive request /API/TKQ : {}", req.queryParams("query"));
+            return api.similarityQuery( req.queryParams("query"), Integer.parseInt(req.queryParams("k")));
+        });
+        get("/API/RQ", (req, res) -> {
+            logger.info("receive request /API/RQ : {}", req.queryParams("query"));
+            return api.rangeQuery(req.queryParams("query"));
+        });
     }
 }

@@ -7,16 +7,17 @@ class Response {
     static Gson gson = new Gson();
 
     boolean formatCorrect;
-    String queryRet;
+    String queryResult;
 
     private Response(){
         formatCorrect = false;
-        queryRet = null;
+        queryResult = null;
     }
 
     private Response(QueryResult queryResult){
         formatCorrect = true;
-        this.queryRet = queryRet;    }
+        this.queryResult = queryResult.toJSON();
+    }
 
     static Response genFailed(){
         return new Response();
