@@ -94,6 +94,7 @@
                     $('#btn'+curBtnState).removeClass("btn-primary").addClass("btn-secondary");
                     curBtn.removeClass("btn-secondary").addClass("btn-primary");
                     curBtnState = parseInt(curBtn.val());
+                    console.log(curBtn.val())
                 }
             });
         }
@@ -104,21 +105,18 @@
         map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
         map.setMapStyle({style: 'light'});
 
-        let path = "";                  // used for other query types
-        let window = "";                // used for range query
-
         let pathStyle = {
-            strokeColor: "rgba(135, 206, 250, 0.6)",
+            strokeColor: "blue",
             strokeWeight: 6,             // width of the stroke
             strokeOpacity: 0.5,
             strokeStyle: "dashed"        // solid or dashed
         };
 
         let rectStyle = {
-            strokeColor: "",
-            fillColor: "rgba(135, 206, 250, 0.6)",
-            strokeOpacity: 0.1,
-            fillOpacity: 0.3,
+            strokeColor: "blue",
+            fillColor: "blue",
+            strokeOpacity: 0.3,
+            fillOpacity: 0.5,
             strokeStyle: "solid"
         };
 
@@ -147,8 +145,6 @@
             let infoElement = $('#info');
             infoElement.text("");
             infoElement.hide();
-            path = "";
-            window = "";
         }
 
         function badInfo( content) {
@@ -169,7 +165,7 @@
 
             if (curBtnState !== RANGE_SEARCH) {
                 let temp = line.getPath();
-                path = "[";
+                let path = "[";
                 temp.forEach((item) => {
                     path += "[" + item.lat + "," + item.lng + "],"
                 });
@@ -196,7 +192,7 @@
                     rect.getPath()[0],
                     rect.getPath()[2]
                 ];
-                window = "[";
+                let window = "[";
                 temp.forEach((item) => {
                     window += "[" + item.lat + "," + item.lng + "],"
                 });
@@ -224,24 +220,27 @@
             let url = urlPrefix + apiMap[curBtnState];
             let data;
             console.log(url);
+            let inputVal = $("#input").val;
             if (curBtnState === RANGE_SEARCH){
-                if (window === "") {
+
+                if (!inputVal || inputVal() === "") {
                     badInfo("A window for the query is required!");
                     return;
                 }
 
-                if (window.split("],[").length !== 2) {
+                if (inputVal().split("],[").length !== 2) {
                     badInfo("A window is defined by an upper left point and a lower right point");
                     return;
                 }
                 data = {query: window};
             } else {
-                if (path === "") {
+
+                if (!inputVal || inputVal() === "") {
                     badInfo("A path for the query is required!");
                     return;
                 }
 
-                if (path.split("],[").length < 2) {
+                if (inputVal().split("],[").length < 2) {
                     badInfo("A path is defined by two or more points");
                     return;
                 }
@@ -297,8 +296,8 @@
                     let data = retObj.ret;
                     let dataSet = new mapv.DataSet(data);
                     let options = {
-                        fillStyle: 'rgba(255, 50, 50, 0.6)',
-                        shadowColor: 'rgba(255, 50, 50, 1)',
+                        fillStyle: 'rgba(135, 206, 250, 0.6)',
+                        shadowColor: 'rgba(135, 206, 250, 1)',
                         shadowBlur: 30,
                         globalCompositeOperation: 'lighter',
                         methods: {
