@@ -108,15 +108,15 @@
         let window = "";                // used for range query
 
         let pathStyle = {
-            strokeColor: "rgba(135, 206, 250, 0.6)",
+            strokeColor: "blue",
             strokeWeight: 6,             // width of the stroke
             strokeOpacity: 0.5,
             strokeStyle: "dashed"        // solid or dashed
         };
 
         let rectStyle = {
-            strokeColor: "",
-            fillColor: "rgba(135, 206, 250, 0.6)",
+            strokeColor: "red",
+            fillColor: "red",
             strokeOpacity: 0.1,
             fillOpacity: 0.3,
             strokeStyle: "solid"
@@ -297,8 +297,8 @@
                     let data = retObj.ret;
                     let dataSet = new mapv.DataSet(data);
                     let options = {
-                        fillStyle: 'rgba(255, 50, 50, 0.6)',
-                        shadowColor: 'rgba(255, 50, 50, 1)',
+                        fillStyle: 'rgba(135, 206, 250, 0.6)',
+                        shadowColor: 'rgba(135, 206, 250, 1)',
                         shadowBlur: 30,
                         globalCompositeOperation: 'lighter',
                         methods: {

@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 
 class Response {
     static Gson gson = new Gson();
-    private static final int MAXIMUM = 200;
+    private static final int MAXIMUM = 50;
 
     boolean formatCorrect;
     String queryResult;
