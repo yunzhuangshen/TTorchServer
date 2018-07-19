@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="055b8296-f517-41c0-af5d-739a9860535b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/torch-trajectory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/torch-trajectory.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,10 +22,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1099">
+            <state relative-caret-position="276">
               <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -37,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
@@ -46,10 +43,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="query.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/T-Torch/query.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file leaf-file-name="API.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/API.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-137">
+            <state relative-caret-position="525">
               <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -61,7 +63,7 @@
       <file leaf-file-name="Request.java" pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.5/spark-core-2.5-sources.jar!/spark/Request.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1742">
+            <state relative-caret-position="3075">
               <caret line="265" column="18" selection-start-line="265" selection-start-column="18" selection-end-line="265" selection-end-column="18" />
               <folding>
                 <element signature="e#7651#7652#0" expanded="true" />
@@ -82,19 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log4j.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Response.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/Response.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="90">
               <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -115,7 +108,7 @@
       <file leaf-file-name="QueryRetJsonModel.class" pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/au/edu/rmit/bdm/TTorch/1.0-SNAPSHOT/TTorch-1.0-SNAPSHOT.jar!/au/edu/rmit/bdm/TTorch/queryEngine/visualization/QueryRetJsonModel.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
+            <state relative-caret-position="360">
               <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
             </state>
           </provider>
@@ -199,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/QueryImpl.java" />
         <option value="$PROJECT_DIR$/T-Torch/ret" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/query/QueryProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/trajectory/torch/queryEngine/Engine.java" />
@@ -250,6 +242,7 @@
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/API.java" />
         <option value="$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/Response.java" />
         <option value="$PROJECT_DIR$/src/main/resources/public/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/T-Torch/query.txt" />
       </list>
     </option>
   </component>
@@ -309,6 +302,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -404,6 +398,14 @@
               <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="T-Torch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="torch-trajectory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="torch-trajectory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -423,9 +425,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -785,6 +786,7 @@
       <workItem from="1531978722430" duration="751000" />
       <workItem from="1531992902186" duration="990000" />
       <workItem from="1531994981208" duration="3678000" />
+      <workItem from="1532002927531" duration="358000" />
     </task>
     <servers />
   </component>
@@ -821,7 +823,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="451647000" />
+    <option name="totallyTimeSpent" value="452005000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -834,7 +836,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="23" width="1440" height="805" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" x="30" y="319" width="1377" height="229" id="TODO" order="6" weight="0.32761088" />
@@ -850,7 +851,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4985694" weight="0.19456366" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.49534884" visible="true" weight="0.21316166" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.49534884" visible="true" weight="0.2160229" />
       <window_info id="Web" order="3" sideWeight="0.5046512" side_tool="true" weight="0.25894135" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
@@ -908,7 +909,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/legacy/src/algorithm/FastTimeSeriesEvaluation.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorch/mapMatching/TorSaver.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorch/base/spatialIndex/RTreeWrapper.java" />
     <entry file="file://$PROJECT_DIR$/legacy/src/datastructure/NodeGridIndex.java" />
@@ -1052,14 +1052,14 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/au/edu/rmit/bdm/TTorch/1.0-SNAPSHOT/TTorch-1.0-SNAPSHOT.jar!/au/edu/rmit/bdm/TTorch/queryEngine/visualization/QueryRetJsonModel.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
+        <state relative-caret-position="360">
           <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/Response.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="90">
           <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1069,7 +1069,7 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.5/spark-core-2.5-sources.jar!/spark/Request.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1742">
+        <state relative-caret-position="3075">
           <caret line="265" column="18" selection-start-line="265" selection-start-column="18" selection-end-line="265" selection-end-column="18" />
           <folding>
             <element signature="e#7651#7652#0" expanded="true" />
@@ -1082,7 +1082,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/API.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-137">
+        <state relative-caret-position="525">
           <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1090,20 +1090,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1099">
-          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/T-Torch/query.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="118" column="28" selection-start-line="118" selection-start-column="28" selection-end-line="118" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/au/edu/rmit/bdm/TTorchServer/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
