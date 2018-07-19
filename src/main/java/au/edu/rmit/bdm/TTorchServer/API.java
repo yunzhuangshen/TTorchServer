@@ -6,12 +6,15 @@ import au.edu.rmit.bdm.TTorch.base.model.TrajEntry;
 import au.edu.rmit.bdm.TTorch.queryEngine.Engine;
 import au.edu.rmit.bdm.TTorch.queryEngine.model.SearchWindow;
 import au.edu.rmit.bdm.TTorch.queryEngine.query.QueryResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class API {
     private Engine engine;
+    private static Logger logger = LoggerFactory.getLogger(API.class);
 
     API(){
         String basePath = App.class.getResource("/").getPath();
@@ -21,22 +24,26 @@ class API {
     String rangeQuery(String query){
 
         List<TrajEntry> entries = convert(query);
-        return entries == null ? QueryResult.genFailedRet(Torch.QueryType.RangeQ, null).getRetMapVformat() : engine.findInRange(new SearchWindow(entries.get(0), entries.get(1))).getRetMapVformat();
+        return entries == null ? Response.genFailed().toJSON() :
+                Response.genSuccessful(engine.findInRange(new SearchWindow(entries.get(0), entries.get(1)))).toJSON();
     }
 
     String pathQuery(String query){
         List<? extends TrajEntry> queryPath = convert(query);
-        return queryPath == null ? QueryResult.genFailedRet(Torch.QueryType.PathQ, null).getRetMapVformat() : engine.findOnPath(queryPath).getRetMapVformat();
+        return queryPath == null ? Response.genFailed().toJSON() :
+                Response.genSuccessful(engine.findOnPath(queryPath)).toJSON();
     }
 
     String strictPathQuery(String query){
         List<? extends TrajEntry> queryPath = convert(query);
-        return queryPath == null ? QueryResult.genFailedRet(Torch.QueryType.PathQ, null).getRetMapVformat() : engine.findOnStrictPath(queryPath).getRetMapVformat();
+        return queryPath == null ? Response.genFailed().toJSON() :
+                Response.genSuccessful(engine.findOnStrictPath(queryPath)).toJSON();
     }
 
     String similarityQuery(String query, int k){
         List<? extends TrajEntry> queryPath = convert(query);
-        return queryPath == null ? QueryResult.genFailedRet(Torch.QueryType.PathQ, null).getRetMapVformat() : engine.findTopK(queryPath, k).getRetMapVformat();
+        return queryPath == null ? Response.genFailed().toJSON() :
+                Response.genSuccessful(engine.findTopK(queryPath, k)).toJSON();
     }
 
     /**
@@ -63,7 +70,9 @@ class API {
             }
             return entries;
 
-        }catch (Exception e){}
+        }catch (Exception e){
+            logger.warn(e.getMessage());
+        }
         return null;
     }
 }

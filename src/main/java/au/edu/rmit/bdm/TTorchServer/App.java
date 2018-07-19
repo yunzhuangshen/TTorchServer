@@ -17,7 +17,7 @@ public class App implements SparkApplication {
 
     // added to make maven compiler working properly
     public static void main(String[] args){
-        System.err.println(QueryResult.genFailedRet(Torch.QueryType.PathQ,null).toJSON());
+
     }
 
     private API api;
