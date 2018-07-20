@@ -23,8 +23,7 @@
 </head>
 <body>
 
-<div style="width: 65%; margin-left:300px; background-color: powderblue">
-    <div class="btn-group" style="margin-top: 50px; margin-left: 180px" role="group" aria-label="Basic example">
+    <div class="btn-group" style="margin-top: 50px; width: 40%;margin-left: 30%; margin-right: 30%" role="group" aria-label="Basic example">
         <button id="btn0" type="button" style="margin-right: 1px" class="btn btn-primary" value=0>Similarity Search
         </button>
         <button id="btn1" type="button" style="margin-right: 1px" class="btn btn-secondary" value=1>Range Search
@@ -34,7 +33,7 @@
         </button>
     </div>
 
-    <div class="input-group mb-3" style="margin-top: 20px; margin-right:10px">
+    <div class="input-group mb-3" style="margin-top: 20px; width: 70%; margin-left:15%; margin-right: 15%;">
         <input type="text" id="input" class="form-control" size="25" placeholder="draw the window for RangeSearch, or the path for other types of queries"
                aria-label="search" aria-describedby="button-addon4" style="margin-left: 50px">
         <div class="input-group-append" id="button-addon4">
@@ -42,14 +41,13 @@
             <button class="btn btn-outline-success" id="btnSearch" style="margin-left: 1px" type="button">Search
             </button>
         </div>
-    </div>
 
     <div id="info" class="alert alert-warning" role="alert" style="margin-left: 220px; width: 450px; font-size: medium; display: none">
         <p style="align-content: center ">A simple warning alert—check it out!</p>
     </div>
 </div>
 
-<div id="map"></div>
+<div style="width: 80%; margin-left: 10%; margin-right: 10%" id="map"></div>
 <canvas id="canvas"></canvas>
 
 <!-- JavaScript field -->
@@ -220,43 +218,43 @@
             let url = urlPrefix + apiMap[curBtnState];
             let data;
             console.log(url);
-            let inputVal = $("#input").val;
+            let inputVal = $("#input").val();
             if (curBtnState === RANGE_SEARCH){
-
-                if (!inputVal || inputVal() === "") {
+                console.log(inputVal.length);
+                if (inputVal.length === 0) {
                     badInfo("A window for the query is required!");
                     return;
                 }
 
-                if (inputVal().split("],[").length !== 2) {
+                if (inputVal.split("],[").length !== 2) {
                     badInfo("A window is defined by an upper left point and a lower right point");
                     return;
                 }
-                data = {query: window};
+                data = {query: inputVal};
             } else {
 
-                if (!inputVal || inputVal() === "") {
+                if (inputVal.length === 0) {
                     badInfo("A path for the query is required!");
                     return;
                 }
 
-                if (inputVal().split("],[").length < 2) {
-                    badInfo("A path is defined by two or more points");
+                if (inputVal.split("],[").length < 2) {
+                    badInfo("A path is defined by two or more points.\n Format: [[lat, lng],[lat, lng],[lat, lng]...]");
                     return;
                 }
 
                 if (curBtnState === SIMILARITY_SEARCH) {
                     data = {
-                        query: path,
+                        query: inputVal,
                         k: 5
                     }
                 }else {
-                    data = {query: path};
+                    data = {query: inputVal};
                 }
             }
             console.log(data);
 
-            goodInfo("The query is under processing, please wait...")
+            goodInfo("The query is under processing, please wait...");
 
             $.ajax({
                 url: url,
@@ -267,13 +265,12 @@
                 success: function(res) {
                     // clear1();
                     console.log(res);
-                    let retObj = JSON.parse(res.queryResult);
-                    let formatCorrect = JSON.parse(res.formatCorrect);
-                    if (!formatCorrect) {
+                    if (!res.formatCorrect) {
                         badInfo("Query is not in the right format. Please do double check!");
                         return;
                     }
-                    
+
+                    let retObj = JSON.parse(res.queryResult);
                     if (!retObj.mappingSucceed){
                         badInfo("Query can not be properly map-matched to road network!")
                         return;
@@ -285,8 +282,8 @@
                         return;
                     }
                     
-                    if (retSize > 50){
-                        goodInfo("There are "+retSize+" of qualified trajectories found, 50 of them are displayed.");
+                    if (retSize > 100){
+                        goodInfo("There are "+retSize+" of qualified trajectories found, 100 of them are displayed.");
                     } else{
                         goodInfo("There are "+retSize+" of qualified trajectories found.")
                     }
@@ -296,8 +293,8 @@
                     let data = retObj.ret;
                     let dataSet = new mapv.DataSet(data);
                     let options = {
-                        fillStyle: 'rgba(135, 206, 250, 0.6)',
-                        shadowColor: 'rgba(135, 206, 250, 1)',
+                        fillStyle: 'rgba(255, 0, 0, 0.6)',
+                        shadowColor: 'rgba(255, 0, 0, 1)',
                         shadowBlur: 30,
                         globalCompositeOperation: 'lighter',
                         methods: {

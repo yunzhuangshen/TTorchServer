@@ -32,26 +32,27 @@ class API {
 
     String pathQuery(String query){
         List<? extends TrajEntry> queryPath = convert(query);
+        if (queryPath == null) return Response.genFailed().toJSON();
         QueryResult ret = engine.findOnPath(queryPath);
         logger.info("number of results found: {}", ret.ret.size());
-        return queryPath == null ? Response.genFailed().toJSON() :
-                Response.genSuccessful(ret).toJSON();
+        return Response.genSuccessful(ret).toJSON();
     }
 
     String strictPathQuery(String query){
         List<? extends TrajEntry> queryPath = convert(query);
+        if (queryPath == null) return Response.genFailed().toJSON();
         QueryResult ret = engine.findOnStrictPath(queryPath);
         logger.info("number of results found: {}", ret.ret.size());
-        return queryPath == null ? Response.genFailed().toJSON() :
-                Response.genSuccessful(ret).toJSON();
+        return Response.genSuccessful(ret).toJSON();
     }
 
     String similarityQuery(String query, int k){
         List<? extends TrajEntry> queryPath = convert(query);
+        if (queryPath == null) return Response.genFailed().toJSON();
+
         QueryResult ret = engine.findTopK(queryPath, k);
         logger.info("number of results found: {}", ret.ret.size());
-        return queryPath == null ? Response.genFailed().toJSON() :
-                Response.genSuccessful(ret).toJSON();
+        return Response.genSuccessful(ret).toJSON();
     }
 
     /**
@@ -80,7 +81,7 @@ class API {
 
         }catch (Exception e){
             logger.warn("cannot model input query: '{}'!", coords);
+            return null;
         }
-        return null;
     }
 }
