@@ -9,11 +9,13 @@
 
     <style type="text/css">
 
-        #map {
-            width: 1000px;
-            height: 500px;
-            margin-top: 50px;
-            margin-left: 250px;
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 0;
         }
 
     </style>
@@ -41,13 +43,12 @@
             <button class="btn btn-outline-success" id="btnSearch" style="margin-left: 1px" type="button">Search
             </button>
         </div>
-
-    <div id="info" class="alert alert-warning" role="alert" style="margin-left: 220px; width: 450px; font-size: medium; display: none">
-        <p style="align-content: center ">A simple warning alert—check it out!</p>
     </div>
-</div>
-
-<div style="width: 80%; margin-left: 10%; margin-right: 10%" id="map"></div>
+    <hr/>
+    <div id="info" class="alert alert-warning" role="alert" style="margin-left: 25%; margin-right: 25%; width: 50%; font-size: medium; display: none">
+        <p>A simple warning alert—check it out!</p>
+    </div>
+<div style="width: 80%; height: 500px; margin-left: 10%; margin-right: 10%" id="map"></div>
 <canvas id="canvas"></canvas>
 
 <!-- JavaScript field -->
