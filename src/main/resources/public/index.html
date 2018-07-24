@@ -22,6 +22,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.css" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 </head>
 <body>
 
@@ -51,8 +53,39 @@
      style="margin-left: 25%; margin-right: 25%; width: 50%; font-size: medium; display: none">
     <p>A simple warning alert—check it out!</p>
 </div>
-<div style="width: 80%; height: 500px; margin-left: 10%; margin-right: 10%" id="map"></div>
-<canvas id="canvas"></canvas>
+<div style="width: 100%; height: 100%">
+    <div id="retPanel" style="float: left; width: 300px; height: 600px; margin-left: 15px; margin-right: 15px; display: none;">
+        <p>Result Panel</p>
+        <div class="clusterize">
+            <table class="pure-table pure-table-horizontal" style="width: 100%; text-align:center">
+                <thead>
+                <tr>
+                    <th>trajId</th>
+                    <th>length</th>
+                </tr>
+                </thead>
+            </table>
+
+            <div id="scrollArea" class="clusterize-scroll">
+                <table class="pure-table pure-table-horizontal" style="width: 100%; height:10px;text-align:center">
+                    <tbody id="contentArea" class="clusterize-content">
+                    <tr class="clusterize-no-data">
+                        <td>Loading data…</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top: 5px; ">
+                <div class="progress">
+                    <span class="badge badge-secondary" style="float: left">progress</span>
+                    <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%; margin-left: 5px" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 600px; margin-left: 3%; margin-right: 3%" id="map"></div>
+    <canvas id="canvas"></canvas>
+</div>
 
 <!-- JavaScript field -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -64,23 +97,225 @@
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=o55gGAr8In322oxznMl5cojFABFo5hjE"></script>
 <script type="text/javascript"
         src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
-<script src="http://mapv.baidu.com/build/mapv.min.js"></script>
-<script type="text/javascript">
+<script type="text/javascript"
+        src="http://mapv.baidu.com/build/mapv.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.js"></script>
+
+<script>
+
+    const URL_PREFIX = "http://43.240.96.2";
+    const TRAJ_ID_API = "/DEV/API/ID";
 
     const SIMILARITY_SEARCH = 0;
     const RANGE_SEARCH = 1;
     const PATH_QUERY = 2;
     const STRICT_PATH_QUERY = 3;
-
-    const urlPrefix = "http://43.240.96.2";
     const apiMap = {
-        0:"/TTorchServer/API/TKQ",
-        1:"/TTorchServer/API/RQ",
-        2:"/TTorchServer/API/PQ",
-        3:"/TTorchServer/API/SPQ"
+        0:"/DEV/API/TKQ",
+        1:"/DEV/API/RQ",
+        2:"/DEV/API/PQ",
+        3:"/DEV/API/SPQ"
     };
 
     $(document).ready(() => {
+
+        //setup list view
+        let ids = [];
+        let map_data = [];
+        let slot = [];
+
+        function calc_cluster(progress) {
+            return Math.floor(progress/100);
+        }
+
+        function calc_progress(overall_percentage){
+            return Math.floor(overall_percentage * ids.length / 100)
+        }
+
+        let mapvLayer1;
+        let mapvLayer2;
+        let trajData;
+        let timeData;
+
+        function displayOnMap(clusterId) {
+            // mapV API
+            // draw retrieved trajecory map_data on map
+            let times = [];
+            console.log("display map data on cluster: "+clusterId);
+            let trajs = map_data[clusterId];
+
+            trajs.forEach(traj =>{
+
+                let coordsArr = traj.geometry.coordinates;
+                let i;
+                for( i = 0; i < coordsArr.length; i ++){
+                    times.push({
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [coordsArr[i][0], coordsArr[i][1]]
+                        },
+                        count:1,
+                        time: i
+                    })
+                }
+            });
+
+            //draw red
+            // let options = {
+            //     fillStyle: 'rgba(255, 0, 0, 0.6)',
+            //     shadowColor: 'rgba(255, 0, 0, 1)',
+            //     shadowBlur: 30,
+            //     globalCompositeOperation: 'lighter',
+            //     methods: {
+            //         click: function (item) {
+            //             // console.log(item);
+            //         }
+            //     },
+            //     size: 5,
+            //     draw: 'simple'
+            // };
+
+            //draw blue
+            let options1 = {
+                strokeStyle: 'rgba(245,61,190,0.3)',
+                //coordType: 'bd09mc',
+                //globalCompositeOperation: 'lighter',
+                shadowColor: 'rgba(53,57,255,0.4)',
+                shadowBlur: 3,
+                lineWidth: 3.0,
+                draw: 'simple'
+            };
+            let options2 = {
+                fillStyle: 'rgba(255, 250, 250, 0.5)',
+                //coordType: 'bd09mc',
+                globalCompositeOperation: "lighter",
+                size: 1.5,
+                animation: {
+                    type:'time',
+                    stepsRange: {
+                        start: 0,
+                        end: 400
+                    },
+                    trails: 1,
+                    duration: 8,  //update every 8 seconds
+                },
+                draw: 'simple'
+            };
+
+            if (!mapvLayer1) {
+                trajData = new mapv.DataSet(trajs);
+                timeData = new mapv.DataSet(times);
+                mapvLayer1 = new mapv.baiduMapLayer(map, trajData, options1);
+                mapvLayer2 = new mapv.baiduMapLayer(map, timeData, options2);
+            }else{
+                trajData.set(trajs);
+                timeData.set(times);
+            }
+
+            console.log("there");
+            //timeData.set(); // 修改数据
+            // mapvLayer1.show(); // 显示图层
+            // mapvLayer2.show();
+            // mapvLayer.hide(); // 删除图层
+        }
+
+        function downloadFullTraj(curCluster, firstTime) {
+            console.log("curCluster: "+curCluster);
+            console.log("slot: "+slot[curCluster]);
+            if (slot[curCluster]) return;
+            slot[curCluster] = true;
+            let table_max_idx = ids.length - 1;
+            let begin_idx = curCluster * 100;
+            let end_idx = (curCluster+1) * 100 - 1;
+            console.log("begin_idx: "+begin_idx);
+            if (begin_idx >= table_max_idx) return;
+            if (table_max_idx < end_idx)
+                end_idx = table_max_idx;
+
+            let url = URL_PREFIX + TRAJ_ID_API;
+
+            let arr = [];
+            //todo get ids and request for full trajectory.
+            for (let i = begin_idx; i <= end_idx; i++) {
+                arr.push(ids[i]);
+            }
+
+            $.ajax({
+                url: url,
+                data: {idSet : JSON.stringify(arr)},
+                dataType:'json',
+                cache: false,
+                type: "GET",
+                success: function(res) {
+                    map_data[curCluster] = res;
+                    console.log("find map_data for cluster: "+ curCluster);
+                    if (firstTime)
+                        displayOnMap(curCluster);
+                },
+
+                error: function(xhr) {
+                    console.log("cannot download cluster: "+clusterize+" . Server unavailable");
+                }
+            });
+        }
+
+        let firstTime = true;
+        let first = true;
+        let maxClusterId;
+        let retNum;
+
+        let clusterize = new Clusterize({
+            scrollId: 'scrollArea',
+            contentId: 'contentArea',
+            rows_in_block:100,          // display 100 records each time
+            blocks_in_cluster:2,
+            callbacks:{
+                scrollingProgress:(percentage)=>{
+
+                    // 1. display progress bar
+                    let progress = calc_progress(percentage);
+                    let curClusterId = calc_cluster(progress);
+                    console.log("curClusterId: "+curClusterId);
+                    console.log("progress: "+(percentage * ids.length / 100));
+
+                    $('#progressBar').css('width', percentage+'%')
+                                     .attr('aria-valuenow', percentage)
+                                     .text(percentage.toFixed(2)+"%");
+
+                    //2. download data for the first time
+                    // if (first){
+                    //     downloadFullTraj(curClusterId, true);
+                    //     first = false;
+                    // }
+                    downloadFullTraj(curClusterId, true);
+
+                    // no need to require trajectories if the stuff has been cached on client side
+                    if ( map_data[curClusterId + 1]) return;
+                    if (maxClusterId !== curClusterId) {
+                        //2. download data for next round
+                        // if (progress % 100 === 1) {
+                        //     downloadFullTraj(curClusterId + 1, false);
+                        // }
+                        downloadFullTraj(curClusterId + 1, false);
+                    }
+                },
+
+                clusterChanged: ()=>{
+
+                    if (firstTime){
+                        firstTime = false;
+                        return;
+                    }
+                    let progress = calc_progress(clusterize.getScrollProgress());
+                    if (progress === 0) return;
+
+                    let curCluster = calc_cluster(progress);
+                    console.log("cluster changed, cur Cluster: "+ curCluster);
+                    displayOnMap(calc_cluster(progress));
+                },
+            }
+        });
 
         // set listeners for query type selection group
         // record current selected btn.
@@ -262,11 +497,19 @@
         });
 
         function clear1() {
-            $("#input").val("");
+            ids = [];
+            map_data = [];
+            slot = [];
+            clusterize.clear();
+            $("#retPanel").hide();
+            //$("#input").val("");
             map.clearOverlays();
             let infoElement = $('#info');
             infoElement.text("");
             infoElement.hide();
+            first = true;
+            mapvLayer1 = undefined;
+            mapvLayer2 = undefined;
         }
 
         function badInfo( content) {
@@ -337,9 +580,19 @@
             clear1();
         });
 
+        function toTableData(ids) {
+            let data = [];
+            let counter = 0;
+            ids.forEach(id => {
+                data.push('<tr><td height="10px">'+id+'</td><td></td></tr>');
+            });
+
+            return data;
+        }
+
         $("#btnSearch").click(()=>{
 
-            let url = urlPrefix + apiMap[curBtnState];
+            let url = URL_PREFIX + apiMap[curBtnState];
             let data;
             console.log(url);
             let inputVal = $("#input").val();
@@ -376,6 +629,7 @@
                     data = {query: inputVal};
                 }
             }
+
             console.log(data);
 
             goodInfo("The query is under processing, please wait...");
@@ -394,12 +648,13 @@
                         return;
                     }
 
-                    let retObj = JSON.parse(res.queryResult);
+                    let retObj = res.retObj;
                     if (!retObj.mappingSucceed){
                         badInfo("Query can not be properly map-matched to road network!")
                         return;
-                    } 
+                    }
 
+                    clear1();
                     let retSize = parseInt(retObj.retSize);
                     if ( retSize === 0){
                         goodInfo("no trajectory meets the requirement");
@@ -411,85 +666,13 @@
                     } else{
                         goodInfo("There are "+retSize+" of qualified trajectories found.")
                     }
-
-                    // mapV API
-                    // draw retrieved trajecory trajs on map
-                    let trajs = retObj.ret;
-                    let times = [];
-
-                    trajs.forEach(traj =>{
-
-                        let coordsArr = traj.geometry.coordinates;
-                        let i;
-                        for( i = 0; i < coordsArr.length; i ++){
-                            times.push({
-                                geometry: {
-                                    type: 'Point',
-                                    coordinates: [coordsArr[i][0], coordsArr[i][1]]
-                                },
-                                count:1,
-                                time: i
-                            })
-                        }
-                    });
-
-                    let trajData = new mapv.DataSet(trajs);
-
-                    //draw red
-                    // let options = {
-                    //     fillStyle: 'rgba(255, 0, 0, 0.6)',
-                    //     shadowColor: 'rgba(255, 0, 0, 1)',
-                    //     shadowBlur: 30,
-                    //     globalCompositeOperation: 'lighter',
-                    //     methods: {
-                    //         click: function (item) {
-                    //             // console.log(item);
-                    //         }
-                    //     },
-                    //     size: 5,
-                    //     draw: 'simple'
-                    // };
-
-                    //todo cannot display
-                    //draw blue
-                    let options1 = {
-                        strokeStyle: 'rgba(245,61,190,0.3)',
-                        //coordType: 'bd09mc',
-                        //globalCompositeOperation: 'lighter',
-                        shadowColor: 'rgba(53,57,255,0.4)',
-                        shadowBlur: 3,
-                        lineWidth: 3.0,
-                        draw: 'simple'
-                    };
-
-                    let mapvLayer1 = new mapv.baiduMapLayer(map, trajData, options1);
-
-                    let timeData = new mapv.DataSet(times);
-
-                    var options2 = {
-                        fillStyle: 'rgba(255, 250, 250, 0.5)',
-                        //coordType: 'bd09mc',
-                        globalCompositeOperation: "lighter",
-                        size: 1.5,
-                        animation: {
-                            type:'time',
-                            stepsRange: {
-                                start: 0,
-                                end: 400
-                            },
-                            trails: 1,
-                            duration: 8,  //update every 8 seconds
-                        },
-                        draw: 'simple'
-                    };
-
-                    let mapvLayer2 = new mapv.baiduMapLayer(map, timeData, options2);
-
-                    console.log("there");
-                    //timeData.set(); // 修改数据
-                    // mapvLayer1.show(); // 显示图层
-                    // mapvLayer2.show();
-                    // mapvLayer.hide(); // 删除图层
+                    console.log(retObj.ids);
+                    ids = retObj.ids;
+                    clusterize.append(toTableData(ids));
+                    maxClusterId = calc_cluster(ids.length - 1);
+                    $("#retPanel").show();
+                    for (let i = 0; i < ids.length; i++)
+                        slot[i] = false;
                 },
                 error: function(xhr) {
                     badInfo("server unavailable");
@@ -498,6 +681,5 @@
         });
     });
 </script>
-
 </body>
 </html>

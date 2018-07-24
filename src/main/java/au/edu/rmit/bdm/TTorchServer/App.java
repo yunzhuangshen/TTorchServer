@@ -1,17 +1,21 @@
 package au.edu.rmit.bdm.TTorchServer;
 
 import au.edu.rmit.bdm.TTorch.base.Torch;
+import au.edu.rmit.bdm.TTorch.queryEngine.query.QueryResult;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spark.Spark;
 import spark.servlet.SparkApplication;
+
+import java.util.Arrays;
+
 import static spark.Spark.get;
 import static spark.Spark.staticFiles;
 
 public class App implements SparkApplication {
-    Logger logger = LoggerFactory.getLogger(App.class);
+    Logger logger = LoggerFactory.getLogger(App.class);;
 
     private API api;
 
@@ -84,5 +88,6 @@ public class App implements SparkApplication {
             logger.info("receive request /API/RQ : {}", req.queryParams("query"));
             return api.rangeQuery(req.queryParams("query"));
         });
+        get("/API/ID", (req, res) -> api.resolveIDs(req.queryParams("idSet")));
     }
 }
