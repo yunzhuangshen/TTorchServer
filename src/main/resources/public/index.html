@@ -11,82 +11,202 @@
 
         hr {
             display: block;
-            height: 1px;
+            height: 2px;
             border: 0;
             border-top: 1px solid #ccc;
             margin: 1em 0;
             padding: 0;
         }
 
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .nav {
+            height: 100%;
+            width: 280px;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            overflow-y: auto;
+            overflow-x: visible;
+            transform: translate(-280px,0);
+            background-color: rgba(255,255,255,0.3);
+            position: fixed;
+        }
+
+        .checkable{
+
+        }
+
+        .ssm-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1;
+        }
+
+        /* Hide default counters */
+        ol.clusterize-content {
+            counter-reset: clusterize-counter;
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        /* Increment counter for every row */
+        ol.clusterize-content li{
+            margin: 0 0 0.5rem 0;
+            counter-increment: clusterize-counter;
+            position: relative;
+        }
+
+        /* Display counter and customize it's styling whatever you like */
+        ol.clusterize-content li:before {
+            content: counter(clusterize-counter) "th trajID: " ;
+            position: absolute;
+            top: 3px;
+            left: 5%;
+            padding: 0px 7px;
+            line-height: 15px;
+            font-size: 10px;
+            border-radius: 10px;
+            background: #9fd3e8;
+            border: 1px solid rgba(0, 140, 186, 0.5);
+        }
+
+        /* ************************************************* */
+
+        /* max-height - the only parameter in this file that needs to be edited.
+         * Change it to suit your needs. The rest is recommended to leave as is.
+         */
+        .clusterize-scroll{
+            overflow: auto;
+        }
+
+        /**
+         * Avoid vertical margins for extra tags
+         * Necessary for correct calculations when rows have nonzero vertical margins
+         */
+        .clusterize-extra-row{
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* By default extra tag .clusterize-keep-parity added to keep parity of rows.
+         * Useful when used :nth-child(even/odd)
+         */
+        .clusterize-extra-row.clusterize-keep-parity{
+            display: none;
+        }
+
+        /* During initialization clusterize adds tabindex to force the browser to keep focus
+         * on the scrolling list, see issue #11
+         * Outline removes default browser's borders for focused elements.
+         */
+        .clusterize-content{
+            outline: 0;
+        }
+
+        /* Centering message that appears when no data provided
+         */
+        .clusterize-no-data td{
+            text-align: center;
+        }
+
     </style>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.css" />
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 </head>
 <body>
+<nav class="nav">
+    <img style="margin-top:3px; margin-left: 85%; max-width: 45px; max-height: 35px" src="img/swipe.png"
+         alt="swipe image"/>
+    <div style="width: 100%; height: 100%; position: relative;">
+        <div style="width: 100%; height: 40%" id="setting">
 
-<div class="btn-group" style="margin-top: 50px; width: 40%;margin-left: 30%; margin-right: 30%; " role="group"
-     aria-label="Basic example">
-    <button id="btn0" type="button" style="margin-right: 1px" class="btn btn-primary" value=0>Similarity Search
-    </button>
-    <button id="btn1" type="button" style="margin-right: 1px" class="btn btn-secondary" value=1>Range Search
-    </button>
-    <button id="btn2" type="button" style="margin-right: 1px" class="btn btn-secondary" value=2>Path Query</button>
-    <button id="btn3" type="button" style="margin-right: 1px" class="btn btn-secondary" value=3>Strict Path Query
-    </button>
-</div>
+        </div>
 
-<div class="input-group mb-3" style="margin-top: 20px; width: 70%; margin-left:15%; margin-right: 15%;">
-    <input type="text" id="input" class="form-control" size="25"
-           placeholder="draw the window for RangeSearch, or the path for other types of queries"
-           aria-label="search" aria-describedby="button-addon4" style="margin-left: 50px">
-    <div class="input-group-append" id="button-addon4">
-        <button class="btn btn-outline-danger" id="btnClear" type="button">Clear</button>
-        <button class="btn btn-outline-success" id="btnSearch" style="margin-left: 1px" type="button">Search
+        <hr style="margin-top: 5px">
+
+        <button style="margin-top:5px;width: 100%" type="button" class="btn btn-success" disabled>
+            Result Panel <span style="margin-left: 3px" id="retSize" class="badge badge-danger"></span>
+            <span class="sr-only">unread messages</span>
         </button>
-    </div>
-</div>
-<hr/>
-<div id="info" class="alert alert-warning" role="alert"
-     style="margin-left: 25%; margin-right: 25%; width: 50%; font-size: medium; display: none">
-    <p>A simple warning alert—check it out!</p>
-</div>
-<div style="width: 100%; height: 100%">
-    <div id="retPanel" style="float: left; width: 300px; height: 600px; margin-left: 15px; margin-right: 15px; display: none;">
-        <p>Result Panel</p>
-        <div class="clusterize">
-            <table class="pure-table pure-table-horizontal" style="width: 100%; text-align:center">
-                <thead>
-                <tr>
-                    <th>trajId</th>
-                    <th>length</th>
-                </tr>
-                </thead>
-            </table>
-
-            <div id="scrollArea" class="clusterize-scroll">
-                <table class="pure-table pure-table-horizontal" style="width: 100%; height:10px;text-align:center">
-                    <tbody id="contentArea" class="clusterize-content">
-                    <tr class="clusterize-no-data">
-                        <td>Loading data…</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div style="margin-top: 5px; ">
-                <div class="progress">
-                    <span class="badge badge-secondary" style="float: left">progress</span>
-                    <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%; margin-left: 5px" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        <div id="retPanel"
+            style="width: 100%; margin-top: 5px;">
+            <div class="clusterize" >
+                <div id="scrollArea" class="clusterize-scroll ">
+                    <ol id="contentArea" class="clusterize-content"
+                        style="width: 100%;text-align:center">
+                    </ol>
+                </div>
+                <div style="margin-top: 5px; ">
+                    <div id="progress" class="progress" style="display: none">
+                        <span class="badge badge-secondary">progress</span>
+                        <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar"
+                             style="width: 0%; margin-left: 5px" aria-valuenow="0" aria-valuemin="0"
+                             aria-valuemax="100"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div style="height: 600px; margin-left: 3%; margin-right: 3%" id="map"></div>
-    <canvas id="canvas"></canvas>
+</nav>
+<div style="position:absolute; margin-top: 20px; margin-left: 20px; z-index:3">
+    <a href="#" class="btn btn-light ssm-toggle-nav"
+       style="padding-bottom: 1px; padding-left: 10px; padding-right: 10px">
+        <object id="svg1" data="img/gear.svg" type="image/svg+xml" style="padding-right: 3px"></object>
+        Settings
+    </a>
 </div>
+<div style="position: relative; z-index:3">
 
+    <div class="btn-group" style="position:absolute; margin-top: 10px; margin-left: 35%; margin-right: 35%; "
+         role="group"
+         aria-label="Basic example">
+        <button id="btn0" type="button" style="margin-right: 1px" class="btn btn-primary" value=0>Similarity Search
+        </button>
+        <button id="btn1" type="button" style="margin-right: 1px" class="btn btn-secondary" value=1>Range Search
+        </button>
+        <button id="btn2" type="button" style="margin-right: 1px" class="btn btn-secondary" value=2>Path Query
+        </button>
+        <button id="btn3" type="button" style="margin-right: 1px" class="btn btn-secondary" value=3>Strict Path
+            Query
+        </button>
+    </div>
+
+    <div class="input-group mb-3"
+         style="position:absolute; margin-top: 50px; width: 70%; margin-left:15%; margin-right: 15%;">
+        <input type="text" id="input" class="form-control" size="25"
+               placeholder="draw the window for RangeSearch, or the path for other types of queries"
+               aria-label="search" aria-describedby="button-addon4" style="margin-left: 50px">
+        <div class="input-group-append" id="button-addon4">
+            <button class="btn btn-outline-danger" id="btnClear" type="button">Clear</button>
+            <button class="btn btn-outline-success" id="btnSearch" style="margin-left: 1px" type="button">Search
+            </button>
+        </div>
+    </div>
+
+    <div id="info" class="alert alert-warning" role="alert"
+         style="height: 25px;position:absolute; z-index:1; margin-top: 93px; margin-left: 25%; margin-right: 25%; width: 50%; padding-top: 0px; font-size: medium; display: none">
+    </div>
+</div>
+<div style=" height: 100%; width: 100%" id="map"></div>
+<canvas id="canvas"></canvas>
+<a href="https://github.com/joanclaret"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
 <!-- JavaScript field -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -101,49 +221,77 @@
         src="http://mapv.baidu.com/build/mapv.min.js"></script>
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.js"></script>
+<!-- touchSwipe library -->
+<script src="http://labs.rampinteractive.co.uk/touchSwipe/jquery.touchSwipe.min.js"></script>
+<!-- Slider Javascript file -->
+<script type='text/javascript' src='./jquery.slideandswipe.js'></script>
 
 <script>
 
-    const URL_PREFIX = "http://43.240.96.2";
-    const TRAJ_ID_API = "/DEV/API/ID";
+    const APP_NAME = "/DEV";
+    const URL_PREFIX = "http://43.240.96.2" + APP_NAME;
+    const TRAJ_ID_API = "/API/ID";
+    const INIT_FILE = "/data/init.txt";
 
     const SIMILARITY_SEARCH = 0;
     const RANGE_SEARCH = 1;
     const PATH_QUERY = 2;
     const STRICT_PATH_QUERY = 3;
     const apiMap = {
-        0:"/DEV/API/TKQ",
-        1:"/DEV/API/RQ",
-        2:"/DEV/API/PQ",
-        3:"/DEV/API/SPQ"
+        0:"/API/TKQ",
+        1:"/API/RQ",
+        2:"/API/PQ",
+        3:"/API/SPQ"
     };
 
     $(document).ready(() => {
+
+        $('.nav').slideAndSwipe();
+
+        $.ajax({
+            url: URL_PREFIX+INIT_FILE,
+            dataType:'json',
+            cache: false,
+            type: "GET",
+            success: function(res) {
+                displayOnInit(res);
+            },
+
+            error: function(xhr) {
+                console.log("error message: ");
+                console.log(xhr);
+            }
+        });
 
         //setup list view
         let ids = [];
         let map_data = [];
         let slot = [];
 
-        function calc_cluster(progress) {
-            return Math.floor(progress/100);
-        }
-
-        function calc_progress(overall_percentage){
-            return Math.floor(overall_percentage * ids.length / 100)
-        }
-
         let mapvLayer1;
         let mapvLayer2;
-        let trajData;
-        let timeData;
 
-        function displayOnMap(clusterId) {
+        let firstTime = true;
+        let first = true;
+        let maxClusterId;
+        let curClusterId = 0;
+
+        function display(index) {
+
             // mapV API
             // draw retrieved trajecory map_data on map
+            console.log("display map data on cluster: "+curClusterId);
+            console.log("index: "+ index);
+            let trajs;
+
+            trajs = map_data[curClusterId];
+            if (index === 0 || index){
+                let temp = [];
+                temp.push(trajs[index]);
+                trajs = temp;
+            }
+
             let times = [];
-            console.log("display map data on cluster: "+clusterId);
-            let trajs = map_data[clusterId];
 
             trajs.forEach(traj =>{
 
@@ -198,6 +346,107 @@
                         end: 400
                     },
                     trails: 1,
+                    duration: 13,  //update every 8 seconds
+                },
+                draw: 'simple'
+            };
+
+            if (!mapvLayer1) {
+                trajData = new mapv.DataSet(trajs);
+                timeData = new mapv.DataSet(times);
+                mapvLayer1 = new mapv.baiduMapLayer(map, trajData, options1);
+                mapvLayer2 = new mapv.baiduMapLayer(map, timeData, options2);
+            }else{
+                trajData.set(trajs);
+                timeData.set(times);
+            }
+
+            console.log("there");
+            //timeData.set(); // 修改数据
+            // mapvLayer1.show(); // 显示图层
+            // mapvLayer2.show();
+            // mapvLayer.hide(); // 删除图层
+        }
+
+        function displayOnInit(trajs){
+
+            //random select 100 trajectories
+            let rand = getRandomInt(0, 1);
+            let begin = rand * 100;
+            let end = (rand + 2) * 100;
+            trajs = trajs.slice(begin, end);
+
+
+            let times = [];
+            for (let k = 0; k < 100; k++){
+                let traj = trajs[k];
+                let coordsArr = traj.geometry.coordinates;
+                let i;
+                let random1 = getRandomInt(0,20);
+                let random2 = 10;
+                if (k<50) {
+                    for (i = 0; i < coordsArr.length; i++) {
+                        times.push({
+                            geometry: {
+                                type: 'Point',
+                                coordinates: [coordsArr[i][0], coordsArr[i][1]]
+                            },
+                            count: 1,
+                            time: i+random1
+                        })
+                    }
+                }else {
+                    let m = random2;
+                    for (i = coordsArr.length - 1; i >= 0; i--) {
+                        times.push({
+                            geometry: {
+                                type: 'Point',
+                                coordinates: [coordsArr[i][0], coordsArr[i][1]]
+                            },
+                            count: 1,
+                            time: m++
+                        })
+                    }
+                }
+            }
+
+            //draw red
+            let options = {
+                fillStyle: 'rgba(255, 0, 0, 0.6)',
+                shadowColor: 'rgba(255, 0, 0, 1)',
+                shadowBlur: 30,
+                globalCompositeOperation: 'lighter',
+                methods: {
+                    click: function (item) {
+                        // console.log(item);
+                    }
+                },
+                size: 5,
+                draw: 'simple'
+            };
+
+            //draw blue
+            let options1 = {
+                strokeStyle: 'rgba(245,61,190,0.3)',
+                //coordType: 'bd09mc',
+                //globalCompositeOperation: 'lighter',
+                shadowColor: 'rgba(53,57,255,0.4)',
+                shadowBlur: 3,
+                lineWidth: 3.0,
+                draw: 'simple'
+            };
+            let options2 = {
+                fillStyle: 'rgba(255, 250, 250, 0.5)',
+                //coordType: 'bd09mc',
+                globalCompositeOperation: "lighter",
+                size: 1.5,
+                animation: {
+                    type:'time',
+                    stepsRange: {
+                        start: 0,
+                        end: 200
+                    },
+                    trails: 1,
                     duration: 8,  //update every 8 seconds
                 },
                 draw: 'simple'
@@ -221,9 +470,9 @@
         }
 
         function downloadFullTraj(curCluster, firstTime) {
-            console.log("curCluster: "+curCluster);
-            console.log("slot: "+slot[curCluster]);
+
             if (slot[curCluster]) return;
+            console.log("download trajectory for cluster: "+curCluster);
             slot[curCluster] = true;
             let table_max_idx = ids.length - 1;
             let begin_idx = curCluster * 100;
@@ -250,8 +499,10 @@
                 success: function(res) {
                     map_data[curCluster] = res;
                     console.log("find map_data for cluster: "+ curCluster);
-                    if (firstTime)
-                        displayOnMap(curCluster);
+                    if (firstTime) {
+                        display(null);
+                        displayed = curCluster;
+                    }
                 },
 
                 error: function(xhr) {
@@ -260,44 +511,57 @@
             });
         }
 
-        let firstTime = true;
-        let first = true;
-        let maxClusterId;
-        let retNum;
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function calc_cluster(progress) {
+            return Math.floor(progress/100);
+        }
+
+        function calc_progress(overall_percentage){
+            return Math.floor(overall_percentage * ids.length / 100)
+        }
+
+        function calc_percentage(p){
+            return p + 6/ids.length * 100;
+        }
+
+
+        let displayed;
 
         let clusterize = new Clusterize({
             scrollId: 'scrollArea',
             contentId: 'contentArea',
-            rows_in_block:100,          // display 100 records each time
+            rows_in_block:100,          // displayOnInit 100 records each time
             blocks_in_cluster:2,
             callbacks:{
                 scrollingProgress:(percentage)=>{
-
-                    // 1. display progress bar
+                    // 1. displayOnInit progress bar
+                    let percentageForPBar = calc_percentage(percentage);
                     let progress = calc_progress(percentage);
-                    let curClusterId = calc_cluster(progress);
-                    console.log("curClusterId: "+curClusterId);
-                    console.log("progress: "+(percentage * ids.length / 100));
+                    curClusterId = calc_cluster(progress);
 
-                    $('#progressBar').css('width', percentage+'%')
-                                     .attr('aria-valuenow', percentage)
-                                     .text(percentage.toFixed(2)+"%");
 
-                    //2. download data for the first time
-                    // if (first){
-                    //     downloadFullTraj(curClusterId, true);
-                    //     first = false;
-                    // }
-                    downloadFullTraj(curClusterId, true);
+                    $('#progressBar').css('width', percentageForPBar+'%')
+                                     .attr('aria-valuenow', percentageForPBar)
+                                     .text(percentageForPBar.toFixed(2)+"%");
 
                     // no need to require trajectories if the stuff has been cached on client side
-                    if ( map_data[curClusterId + 1]) return;
-                    if (maxClusterId !== curClusterId) {
-                        //2. download data for next round
-                        // if (progress % 100 === 1) {
-                        //     downloadFullTraj(curClusterId + 1, false);
-                        // }
-                        downloadFullTraj(curClusterId + 1, false);
+                    if (!slot[curClusterId])
+                        downloadFullTraj(curClusterId, false);
+
+                    if (displayed !== curClusterId){
+                        if (map_data[curClusterId]) {
+                            display(null);
+                            displayed = curClusterId;
+                        }
+                    }
+
+                    if ( !slot[curClusterId + 1]) {
+                        if (maxClusterId !== curClusterId) {
+                            downloadFullTraj(curClusterId + 1, false);
+                        }
                     }
                 },
 
@@ -307,12 +571,24 @@
                         firstTime = false;
                         return;
                     }
+
                     let progress = calc_progress(clusterize.getScrollProgress());
-                    if (progress === 0) return;
+                    if (progress ===0 ) return;
 
                     let curCluster = calc_cluster(progress);
-                    console.log("cluster changed, cur Cluster: "+ curCluster);
-                    displayOnMap(calc_cluster(progress));
+                    curClusterId = curCluster;
+                    console.log("cluster changed. cur cluster id: "+curClusterId);
+
+                    if(map_data[curClusterId]) {
+                        display(null);
+                        displayed = curClusterId;
+                    }
+
+                    $('.checkable').click((e)=>{
+                        let index = parseInt($(e.target).attr("value"));
+                        console.log("clicked: ");
+                        display(index);
+                    });
                 },
             }
         });
@@ -340,8 +616,11 @@
         let map = new BMap.Map("map");    // 创建Map实例
         map.centerAndZoom(new BMap.Point(-8.630568, 41.154795), 12);  // 初始化地图,设置中心点坐标和地图级别
         map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
-        var top_left_navigation = new BMap.NavigationControl();
-        map.addControl(top_left_navigation);
+        var bottom_right_navigation = new BMap.NavigationControl({
+            anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+            offset: new BMap.Size(10, 90)
+        });
+        map.addControl(bottom_right_navigation);
         // map.setMapStyle({style: 'light'});
 
         // 地图自定义样式
@@ -479,10 +758,10 @@
 
         let drawer = new BMapLib.DrawingManager(map, {
             isOpen: false,                          // disable drawing mode
-            enableDrawingTool: true,                // display tool bar
+            enableDrawingTool: true,                // displayOnInit tool bar
             drawingToolOptions: {
-                anchor: BMAP_ANCHOR_TOP_RIGHT,      // position of the tool bar
-                offset: new BMap.Size(10, 40),        // offset from the position
+                anchor: BMAP_ANCHOR_BOTTOM_RIGHT,      // position of the tool bar
+                offset: new BMap.Size(60, 40),        // offset from the position
                 scale: 0.8,
                 drawingModes: [                    // functions on tool bar
                     // BMAP_DRAWING_MARKER,
@@ -497,11 +776,12 @@
         });
 
         function clear1() {
+            curClusterId = 0;
             ids = [];
             map_data = [];
             slot = [];
             clusterize.clear();
-            $("#retPanel").hide();
+            $("#progress").hide();
             //$("#input").val("");
             map.clearOverlays();
             let infoElement = $('#info');
@@ -580,11 +860,17 @@
             clear1();
         });
 
-        function toTableData(ids) {
+        function toListData(ids) {
             let data = [];
             let counter = 0;
             ids.forEach(id => {
-                data.push('<tr><td height="10px">'+id+'</td><td></td></tr>');
+                data.push('<li>' +
+                    '<div style="width: 100%; margin-left: 5px"">' +
+                    '<button class="btn btn-outline-success btn-xs checkable" style="margin-left: 60px; font-size: x-small" value="'+ counter+'">'+id+'</button>' +
+                    '</div>' +
+                    '</li>');
+                if (++counter === 100)
+                    counter = 0;
             });
 
             return data;
@@ -654,31 +940,43 @@
                         return;
                     }
 
-                    clear1();
                     let retSize = parseInt(retObj.retSize);
                     if ( retSize === 0){
                         goodInfo("no trajectory meets the requirement");
                         return;
                     }
+
+                    clear1();
                     
                     if (retSize > 100){
                         goodInfo("There are "+retSize+" of qualified trajectories found, 100 of them are displayed.");
                     } else{
                         goodInfo("There are "+retSize+" of qualified trajectories found.")
                     }
-                    console.log(retObj.ids);
+
                     ids = retObj.ids;
-                    clusterize.append(toTableData(ids));
-                    maxClusterId = calc_cluster(ids.length - 1);
-                    $("#retPanel").show();
                     for (let i = 0; i < ids.length; i++)
                         slot[i] = false;
+
+                    clusterize.append(toListData(ids));
+
+                    downloadFullTraj(curClusterId, true);
+                    maxClusterId = calc_cluster(ids.length - 1);
+                    $("#retSize").text(ids.length);
+                    $("#progress").show();
+
+                    $('.checkable').click((e)=>{
+                        let index = parseInt($(e.target).attr("value"));
+                        console.log("clicked: ");
+                        display(index);
+                    });
                 },
                 error: function(xhr) {
                     badInfo("server unavailable");
                 }
             });
         });
+
     });
 </script>
 </body>
