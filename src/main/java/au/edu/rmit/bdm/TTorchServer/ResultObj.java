@@ -7,11 +7,14 @@ import java.util.List;
 
 class ResultObj {
     boolean mappingSucceed;
+    String failReason;
     List<Coordinate> mappedTrajectory;
+    List<Coordinate> rawTrajectory;
     int retSize;
     int[] ids;
 
     ResultObj(){
         mappedTrajectory = new LinkedList<>();
+        rawTrajectory = new LinkedList<>();
     }
 }

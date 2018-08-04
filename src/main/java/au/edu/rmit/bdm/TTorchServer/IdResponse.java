@@ -8,12 +8,11 @@ import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
-
 class IdResponse {
     static Gson gson = new Gson();
     private transient Logger logger = LoggerFactory.getLogger(IdResponse.class);
     boolean formatCorrect;
+    String queryType;
     ResultObj retObj;
 
 
@@ -27,13 +26,20 @@ class IdResponse {
             System.exit(-1);
         }
         formatCorrect = true;
+        queryType = queryResult.queryType;
         retObj = new ResultObj();
         retObj.mappingSucceed = queryResult.mappingSucceed;
+        retObj.failReason = queryResult.failReason;
 
         if (!queryResult.queryType.equals(Torch.QueryType.RangeQ)) {
             if (!retObj.mappingSucceed) return;
             for (TrajEntry entry : queryResult.mappedQuery)
                 retObj.mappedTrajectory.add(new Coordinate(entry.getLat(), entry.getLng()));
+
+            if (queryResult.rawQuery != null) {
+                for (TrajEntry entry : queryResult.rawQuery)
+                    retObj.rawTrajectory.add(new Coordinate(entry.getLat(), entry.getLng()));
+            }
         }
         retObj.retSize = queryResult.retSize;
         if (retObj.retSize == 0) return;
