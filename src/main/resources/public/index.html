@@ -7,204 +7,63 @@
 
     <title>TTorch</title>
 
-    <style type="text/css">
-
-        .btnShine {
-            -webkit-transition: .6s;
-            transition: .6s;
-            overflow: hidden;
-        }
-        .btnShine:focus {
-            outline: 0;
-        }
-        .btnShine:before {
-            content: '';
-            background: rgba(255, 255, 255, 0.5);
-            opacity: .5;
-            -webkit-filter: blur(30px);
-            filter: blur(30px);
-        }
-        .btnShine:after {
-            content: '';
-            background: rgba(255, 255, 255, 0.2);
-            opacity: 0;
-            -webkit-filter: blur(5px);
-            filter: blur(5px);
-        }
-        .btnShine.shine, .btnShine:hover {
-            background: rgb(247, 226, 2);
-            cursor: pointer;
-        }
-        .btnShine.shine:before, .btnShine:hover:before {
-            opacity: 0.6;
-            -webkit-transition: .7s;
-            transition: .7s;
-        }
-        .btnShine.shine:after, .btnShine:hover:after {
-            opacity: 1;
-            -webkit-transition: .7s;
-            transition: .7s;
-        }
-
-        hr {
-            display: block;
-            height: 2px;
-            border: 0;
-            border-top: 1px solid #ccc;
-            margin: 1em 0;
-            padding: 0;
-        }
-
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .nav {
-            margin-top: 6%;
-            height: 600px;
-            margin-bottom: 3%;
-            width: 280px;
-            left: 0;
-            top: 0;
-            z-index: 2;
-            overflow-y: auto;
-            overflow-x: visible;
-            transform: translate(-280px,0);
-            background-color: rgba(255,255,255,0.5);
-            position: fixed;
-        }
-
-        .checkable{
-
-        }
-
-        .retPanel{
-            margin-top: 5px;
-        }
-        .ssm-overlay {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(0,0,0,0.2);
-            display: none;
-            z-index: 1;
-        }
-
-        /* Hide default counters */
-        ol.clusterize-content {
-            counter-reset: clusterize-counter;
-            list-style: none;
-            padding-left: 10px;
-        }
-
-        /* Increment counter for every row */
-        ol.clusterize-content li{
-            margin: 0 0 0.5rem 0;
-            counter-increment: clusterize-counter;
-            position: relative;
-        }
-
-        /* Display counter and customize it's styling whatever you like */
-        ol.clusterize-content li:before {
-            content: counter(clusterize-counter) "th trajID: " ;
-            position: absolute;
-            top: 3px;
-            left: 5%;
-            padding: 0px 7px;
-            line-height: 15px;
-            font-size: 10px;
-            border-radius: 10px;
-            background: #9fd3e8;
-            border: 1px solid rgba(0, 140, 186, 0.5);
-        }
-
-        /* ************************************************* */
-
-        /* max-height - the only parameter in this file that needs to be edited.
-         * Change it to suit your needs. The rest is recommended to leave as is.
-         */
-        .clusterize-scroll{
-            overflow: auto;
-        }
-
-        /**
-         * Avoid vertical margins for extra tags
-         * Necessary for correct calculations when rows have nonzero vertical margins
-         */
-        .clusterize-extra-row{
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
-        }
-
-        /* By default extra tag .clusterize-keep-parity added to keep parity of rows.
-         * Useful when used :nth-child(even/odd)
-         */
-        .clusterize-extra-row.clusterize-keep-parity{
-            display: none;
-        }
-
-        /* During initialization clusterize adds tabindex to force the browser to keep focus
-         * on the scrolling list, see issue #11
-         * Outline removes default browser's borders for focused elements.
-         */
-        .clusterize-content{
-            outline: 0;
-        }
-
-        /* Centering message that appears when no data provided
-         */
-        .clusterize-no-data td{
-            text-align: center;
-        }
-
-    </style>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
           integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.css"/>
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
           integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="nav">
+<nav class="nav" >
 
-        <div style="width: 100%; height: 40%; position: relative">
-            <img style=" margin-left:88%; margin-top:3px; max-width: 45px; max-height: 35px" src="img/swipe.png"
-                 alt="swipe image"/>
-            <button style="width: 100%; margin-top: -64px " type="button"  class="btn btn-success" disabled>
-                Similarity Search Config
+    <div style="width: 100%; height: 40%; position: relative">
+        <img style=" margin-left:88%; margin-top:3px; max-width: 45px; max-height: 35px" src="../../IdeaProjects/TTorchServer/src/main/resources/public/img/swipe.png"
+             alt="swipe image"/>
+        <button style="width: 100%; margin-top: -64px " type="button" class="btn btn-success" disabled>
+            Time span
+        </button>
+
+        <div class="alert alert-info small" role="alert" style="margin-top: -25px; width: 80%; margin-left: 10%">
+            Trajectories are collected during 2018-03-11 11:11:09 to 2018-03-21 11:11:09
+        </div>
+        <div style="margin-top: -15px; margin-left: 3%" class="small">
+            <label for="start_time">from:</label>
+            <input type="datetime-local" id="start_time" width="210px"
+                   value="2018-03-11T11:11"
+                   min="2018-03-11T11:11" max="2018-03-21T11:11" />
+        </div>
+
+        <div style="margin-left: 3% "  class="small">
+            <label for="end_time">to:</label>
+            <input type="datetime-local" id="end_time"
+                   value="2018-03-21T11:11" width="210px"
+                   min="2018-03-11T11:11" max="2018-03-21T11:11" />
+        </div>
+
+        <!-- top k query area -->
+        <div style="width: 100%; margin-top: 25px ">
+            <button style="width: 100%" type="button" class="btn btn-success" disabled>
+                Top K query selector
             </button>
 
-            <div style=" margin-left: 10%; width:80%; margin-top:10px; height: 40%">
+            <div style=" margin-left: 10%; width:80%; margin-top:10px; height: 40%" class="extsmall">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Number of results(K): </span>
                     </div>
-                    <input type="text" placeholder="15" class="form-control"
-                           aria-describedby="inputGroup-sizing-sm" id="k">
+                    <input type="number" value="15" min="1" max="50" class="form-control"
+                           aria-describedby="inputGroup-sizing-sm" id="input_k">
                 </div>
 
-                <div class="input-group" style="width: auto">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Index</span>
-                    </div>
-                    <select class="indexGroup" id="index" title="none" onchange="indexChange(this.value)">
-                        <option value="eii" selected>Edge based </option>
-                        <option value="levi">Vertex based</option>
-                    </select>
-                </div>
-                <div class="input-group" id="simWrapper" style="margin-top: 15px; display: none">
+                <div class="input-group" id="simWrapper" style="margin-top: 15px;">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Measure</span>
                     </div>
+
                     <select class="simGroup" id="sim" title="none" onchange="simChange(this.value)">
+                        <option value="LORS">LORS</option>
                         <option value="DTW" selected>DTW</option>
                         <option value="LCSS">LCSS</option>
                         <option value="EDR">EDR</option>
@@ -216,90 +75,129 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Epsilon(LCSS, EDR)</span>
                         </div>
-                        <input type="text" placeholder="50" class="form-control"
-                               aria-describedby="inputGroup-sizing-sm" id="epsilon" style="width: 30px">
-                    </div>
-                </div>
-                <hr>
-            </div>
-        </div>
-    <hr style="margin-top: 5px; display: block">
-    <div style="height: 300px; width: 100%">
-        <div style="width: 100%; margin-top: 5px; height: 40%">
-            <div class="retPanel">
-                <button style="margin-top:5px;width: 100%" type="button" class="btn btn-success" disabled>
-                    Result Panel <span style="margin-left: 3px" id="retSize" class="badge badge-danger"></span>
-                </button>
-                <div id="nonRQ" style="width:100%; text-align: center; display: none">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="showRaw" checked>
-                        <label class="custom-control-label" for="showRaw">display raw path</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="showMapped" checked>
-                        <label class="custom-control-label" for="showMapped">display mapped path</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="hideRet">
-                        <label class="custom-control-label" for="hideRet">hide results</label>
+                        <input type="number" value="50" class="form-control"
+                               aria-describedby="inputGroup-sizing-sm" id="input_epsilon" style="width: 30px">
                     </div>
                 </div>
             </div>
-            <div class="clusterize">
-                <div id="scrollArea" class="clusterize-scroll ">
-                    <ol id="contentArea" class="clusterize-content"
-                        style="width: 90%;text-align:center">
-                    </ol>
-                </div>
-            </div>
-            <div class="retPanel">
-                <div class="progress">
-                    <span class="badge badge-secondary">progress</span>
-                    <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar"
-                         style="width: 0%; margin-left: 5px" aria-valuenow="0" aria-valuemin="0"
-                         aria-valuemax="100"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-<div style="position:absolute; margin-top: 20px; margin-left: 20px; z-index:3">
-    <a href="#" id="btn_nav" class="btn btn-light ssm-toggle-nav"
-       style="padding-bottom: 1px; padding-left: 10px; padding-right: 10px">
-        <object id="svg1" data="img/gear.svg" type="image/svg+xml" style="padding-right: 3px"></object>
-        Settings
-    </a>
-</div>
-<div style="position: relative; z-index:3">
 
-    <div class="btn-group" style=" position:absolute; margin-top: 10px; margin-left: 35%; margin-right: 35%; align-items: baseline"
-         role="group"
-         aria-label="Basic example">
-        <button id="btn0" type="button" style="margin-right: 1px" class="btn btn-primary btnShine" value=0>Similarity Search
-        </button>
-        <button id="btn1" type="button" style="margin-right: 1px" class="btn btn-secondary" value=1>Range Search
-        </button>
-        <button id="btn2" type="button" style="margin-right: 1px" class="btn btn-secondary btnShine" value=2>Path Query
-        </button>
-        <button id="btn3" type="button" style="margin-right: 1px" class="btn btn-secondary btnShine" value=3>Strict Path
-            Query
-        </button>
-    </div>
+            <div class="clusterize" style="margin-left: 15px">
 
-    <div class="input-group mb-3"
-         style="position:absolute; margin-top: 50px; width: 70%; margin-left:15%; margin-right: 15%;">
-        <input type="text" id="input" class="form-control" size="25"
-               placeholder="draw the window for RangeSearch, or the path for other types of queries"
-               aria-label="search" aria-describedby="button-addon4" style="margin-left: 50px" disabled>
-        <div class="input-group-append" id="button-addon4">
-            <button class="btn btn-outline-danger" id="btnClear" type="button">Clear</button>
-            <button class="btn btn-outline-success" id="btnSearch" style="margin-left: 1px" type="button">Search
+                <table style="width:100%">
+                    <thead>
+                    <tr>
+                        <td style="width: 105px">Identifier</td>
+                        <td style="width: 90px">State</td>
+                        <td style="width: 50px">Select</td>
+                    </tr>
+                    </thead>
+                </table>
+
+                <div id="topK_scrollArea" class="clusterize-scroll ">
+                    <table style="width:100%" align="center">
+                        <tbody id="topK_contentArea" class="clusterize-content">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <br>
+            <button class="btn btn-outline-success" id="sim_search" style="margin-left: 120px" type="button">Search
             </button>
+
+            <button style="width: 100%;" type="button" class="btn btn-success" disabled>
+                combined query selector
+            </button>
+            <br>
+
+            <div class="input-group small" style="margin-left: 20%; width: 60%; margin-top: 15px">
+                <input id="input_street" type="text" class="form-control" placeholder="street name"
+                       aria-label="street name" aria-describedby="btn_street">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="btn_street">add</button>
+                </div>
+            </div>
+
+            <div class="clusterize" style="margin-top:10px; margin-left: 15px">
+
+                <table style="width:100%">
+                    <thead>
+                    <tr>
+                        <td width="100px">Identifier</td>
+                        <td width="80px">State</td>
+                        <td width="80px">isStrict</td>
+                        <td width="50px">Select</td>
+                    </tr>
+                    </thead>
+                </table>
+
+                <div id="combined_scrollArea" class="clusterize-scroll ">
+                    <table style="width: 100%" align="center">
+                        <tbody id="combined_contentArea" class="clusterize-content">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <br>
+            <button class="btn btn-outline-success" id="bool_search" style="margin-left: 120px" type="button">Search</button>
         </div>
+
+
+        <div style=" width: 100%; margin-top: 70px ">
+                <div class="retPanel">
+                    <button style="margin-top:5px;width: 100%" type="button" class="btn btn-success" disabled>
+                        Result Panel <span style="margin-left: 3px" id="retSize" class="badge badge-danger"></span>
+                    </button>
+                    <div id="nonRQ" style="width:100% ; display: none; text-align: center">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="showRaw" checked>
+                            <label style="width: 180px" class="custom-control-label" for="showRaw">display raw path</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="showMapped" checked>
+                            <label style="width: 180px" class="custom-control-label" for="showMapped">display mapped path</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="hideRet">
+                            <label style="width: 180px" class="custom-control-label" for="hideRet">hide results</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="clusterize">
+                    <div id="ret_scrollArea" class="clusterize-scroll ">
+                        <ol id="ret_contentArea" class="clusterize-content"
+                            style="width: 90%;text-align:center">
+                        </ol>
+                    </div>
+                </div>
+                <div class="retPanel" >
+                    <div class="progress">
+                        <span class="badge badge-secondary">progress</span>
+                        <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar"
+                             style="width: 0%; margin-left: 5px" aria-valuenow="0" aria-valuemin="0"
+                             aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
     </div>
 
+
+</nav>
+
+<div style="position:absolute; margin-top: 20px; margin-left: 20px; z-index:3">
+    <a href="#" id="btn_nav" class="btn btn-outline-info ssm-toggle-nav"
+       style="padding-bottom: 1px; padding-left: 10px; padding-right: 10px; float: left; height: 38px">
+        <object id="svg1" data="../../IdeaProjects/TTorchServer/src/main/resources/public/img/gear.svg" type="image/svg+xml" style="padding-right: 3px"></object>
+        Search Panel
+    </a>
+
+    <button class="btn btn-outline-danger" id="btnClear" type="button" style="margin-left: 5px">Clear All</button>
+</div>
+
+<div style="position:absolute; top: 40px; width: 70%; margin-left:15%; margin-right: 15%; z-index:3">
     <div id="info" class="alert alert-warning" role="alert"
-         style="height: 45px;position:absolute; z-index:1; margin-top: 93px; margin-left: 25%; margin-right: 25%; width: 55%; font-size: medium; text-align:center ;display: none">
+         style="height: 45px;position:absolute; z-index:3; margin-top: 10px; margin-left: 25%; margin-right: 25%; width: 55%; font-size: medium; text-align:center; display: none ">
     </div>
 </div>
 <div style=" height: 100%; width: 100%" id="map"></div>
@@ -324,7 +222,7 @@
 <!-- Slider Javascript file -->
 <script type='text/javascript' src='./js/jquery.slideandswipe.js'></script>
 <!-- my script -->
-<script type="text/javascript" src="./js/data.js"></script>
+<script type="text/javascript" src="js/data.js"></script>
 
 <script>
 
@@ -346,13 +244,14 @@
         return p + 6/ids.length * 100;
     }
 
-    function toListData(ids) {
+    //todo function toListData
+    function toRetListData(ids) {
         let data = [];
         let counter = 0;
         ids.forEach(id => {
             data.push('<li>' +
-                '<div style="width: 100%; margin-left: 5px"">' +
-                '<button class="btn btn-outline-success btn-xs checkable" style="margin-left: 60px; font-size: x-small" value="'+ counter+'">'+id+'</button>' +
+                '<div style="width: 100%; margin-left: 5px">' +
+                '<button class="btn btn-success btn-xs ret_checkable" style="margin-left: 60px; font-size: x-small" value='+ counter+'>'+id+'</button>' +
                 '</div>' +
                 '</li>');
             if (++counter === 100)
@@ -362,11 +261,143 @@
         return data;
     }
 
-    function indexChange(val){
-        if (val === "eii")
-            $('#simWrapper').hide();
-        else
-            $('#simWrapper').show();
+    function toSimLine(poly){
+
+        let tr = '<tr>' +
+
+            '<td width="105px" style="padding-bottom: 1ex">' +
+            '<span style="color:blue;font-weight:bold; font-size: small">path: '+counter_line+ '</span>' +
+            '</td>' +
+            '<td width = "135px" style="padding-bottom: 1ex">' +
+            '<button  class="btn btn-success btn-xs path_checkable" style="font-size: x-small" value="'+ counter_line +'">on display</button>' +
+            '</td>'+
+            '<td width = "50px" style="padding-bottom: 1ex">' +
+            '<input type="radio" name="sim" value="'+ counter_line + '" checked>' +
+            '</td>' +
+            '</tr>';
+
+        return tr;
+    }
+
+    function toComline(poly){
+
+        let tr = '<tr>' +
+            '<td width="100px" style="padding-bottom: 0.5ex">' +
+            '<span style="color:blue;font-weight:bold; font-size: small">path: '+counter_line+ '</span>' +
+            '</td>' +
+            '<td width="80px" style="padding-bottom: 0.5ex">' +
+            '<button  class="btn btn-success btn-xs path_checkable" style="font-size: x-small" value="'+ counter_line +'">on display</button>' +
+            '</td>'+
+            '<td width="80px" style="padding-bottom: 0.5ex">' +
+            '<button  class="btn btn-primary btn-xs state_strict" style="font-size: x-small" value="'+counter_line+'">loose</button>' +
+            '</td>'+
+            '<td width="50px" style="padding-bottom: 0.5ex">' +
+            '<input name="com_line" type="checkbox" value="'+ counter_line + '">' +
+            '</td>' +
+            '</tr>';
+
+        return tr;
+    }
+
+    // "line", "rect", "street"
+    function toRect(poly){
+
+        let tr = '<tr>' +
+            '<td width="100px" style="padding-bottom: 0.5ex">' +
+            '<span style="color:blue;font-weight:bold; font-size: small">window: '+counter_rect+ '</span>' +
+            '</td>' +
+            '<td width="80px" style="padding-bottom:  0.5ex">' +
+            '<button  class="btn btn-success btn-xs rect_checkable" style="font-size: x-small" value="'+ counter_rect +'">on display</button>' +
+            '</td>'+
+            '<td width="80px" style="padding-bottom: 0.5ex">' +
+            '<button  class="btn btn-secondary btn-xs" style="font-size: x-small" disabled>NaN</button>' +
+            '</td>'+
+            '<td width="50px" style="padding-bottom:  0.5ex">' +
+            '<input  type="checkbox" name="com_rect" value="'+ counter_rect + '">' +
+            '</td>' +
+            '</tr>';
+
+        return tr;
+    }
+
+    function toStreetName(name){
+
+        let tr = '<tr>' +
+            '<td width="100px" style="padding-bottom: 0.5ex">' +
+            '<span style="color:blue;font-weight:bold; font-size: small">'+name+'</span>' +
+            '</td>' +
+            '<td width="80px" style="padding-bottom: 0.5ex">' +
+            '<button class="btn btn-secondary btn-xs" style="font-size: x-small" value="'+ name +' disabled">NaN</button>' +
+            '</td>' +
+            '<td width="80px" style="padding-bottom: 0.5ex">' +
+            '<button  class="btn btn-primary btn-xs state_strict" style="font-size: x-small" value="'+ name +'">loose</button>' +
+            '</td>'+
+            '<td width="50px" style="padding-bottom: 0.5ex">' +
+            '<input type="checkbox" name="com_st" value="'+ name + '" checked>' +
+            '</td>' +
+            '</tr>';
+
+        return tr;
+    }
+
+    //todo set clickable
+    function setClickable(){
+
+        $('.path_checkable').click((e)=>{
+            let btn = $(e.target);
+            let temp = btn.attr("value");
+            let index = parseInt(temp);
+            console.log(index);
+            if( line_polygons[index].isVisible()){
+                line_polygons[index].hide();
+                line_label[index].hide();
+                btn.text('on hide');
+                btn.addClass('btn-secondary').removeClass('btn-success');
+                let temp1 = $('.path_checkable[value='+ temp +']');
+                temp1.text('on hide');
+                temp1.addClass('btn-secondary').removeClass('btn-success');
+            }
+            else{
+                line_polygons[index].show();
+                line_label[index].show();
+                btn.text('on display');
+                let temp1 = $('.path_checkable[value='+ temp +']');
+                temp1.text('on display');
+                temp1.addClass('btn-success').removeClass('btn-secondary');
+            }
+        });
+
+        $('.rect_checkable').click((e)=>{
+            let btn = $(e.target);
+            let index = parseInt(btn.attr("value"));
+
+            if( rect_polygons[index].isVisible()){
+                console.log("hide" + index+"th button");
+
+                rect_polygons[index].hide();
+                rect_label[index].hide();
+                btn.text('on hide');
+                btn.addClass('btn-secondary').removeClass('btn-success');
+            }
+            else{
+                console.log("show "+index+"th button");
+
+                rect_polygons[index].show();
+                rect_label[index].show();
+                btn.text('on display');
+                btn.addClass('btn-success').removeClass('btn-secondary');
+            }
+        });
+
+        $('.state_strict').click((e)=>{
+            let btn = $(e.target);
+
+            if (btn.text()==='loose'){
+                btn.text('strict');
+            } else{
+                btn.text('loose');
+            }
+        })
     }
 
     function simChange(val){
@@ -393,28 +424,51 @@
 
     $(document).ready(() => {
 
-        // display and hide similarity panel when the index settings changes
-        function clear1() {
+        //todo definition of function
+
+        function clearAll() {
+            clearRetPanel();
+            clusterize_sim.clear();
+            clusterize_com.clear();
+
+            //clear state
+            counter_line = 0;
+            counter_st = 0;
+            counter_rect = 0;
+
+            line_label = [];
+            line_polygons = [];
+            rect_label = [];
+            rect_polygons = [];
+
+            map.clearOverlays();
+            if (lineLayer) {
+                lineLayer.destroy();
+                lineLayer = undefined;
+                animationLayer.destroy();
+                animationLayer = undefined;
+            }
+
+            if (singleLineLayer) {
+                singleLineLayer.destroy();
+                singleAnimationLayer.destroy();
+                singleLineLayer = undefined;
+                singleAnimationLayer = undefined;
+            }
+        }
+
+        function clearRetPanel(){
             curClusterId = 0;
             ids = [];
             map_data = [];
             slot = [];
-            clusterize.clear();
-            $(".retPanel").hide();
-            map.clearOverlays();
-            if (curBtnState === 1){
-                map.addOverlay(rectangle);
-            }
+            clusterize_ret.clear();
+            $("#nonRQ").hide();
 
             let infoElement = $('#info');
             infoElement.text("");
             infoElement.hide();
             first = true;
-            lineLayer = undefined;
-            animationLayer = undefined;
-            singleLineLayer = undefined;
-            singleAnimationLayer = undefined;
-
             hide = false;
         }
 
@@ -434,7 +488,7 @@
             let url = URL_PREFIX + TRAJ_ID_API;
 
             let arr = [];
-            //todo get ids and request for full trajectory.
+
             for (let i = begin_idx; i <= end_idx; i++) {
                 arr.push(ids[i]);
             }
@@ -455,7 +509,7 @@
                 },
 
                 error: function(xhr) {
-                    console.log("cannot download cluster: "+clusterize+" . Server unavailable");
+                    console.log("cannot download cluster: "+clusterize_ret+" . Server unavailable");
                 }
             });
         }
@@ -596,19 +650,24 @@
             //mappedLayer.show();
         }
 
-        function makeRaw(coorArray) {
+        function makeRaw(coorArrays) {
 
-            let geo = [];
-            coorArray.forEach(coor=>{
-               geo.push([coor.lng, coor.lat])
+            let trajs = [];
+
+            coorArrays.forEach((coorArray) => {
+                let geo = [];
+                coorArray.forEach(coor => {
+                    geo.push([coor.lng, coor.lat])
+                });
+
+                //gen mapVformat
+                trajs.push({
+                    geometry: {
+                        type: "LineString",
+                        coordinates: geo
+                    },
+                });
             });
-
-            //gen mapVformat
-            let trajs =  [{
-                geometry: {
-                    type: "LineString",
-                    coordinates:geo
-                },}];
 
             if (!rawLayer) {
                 rawData = new mapv.DataSet(trajs);
@@ -619,19 +678,24 @@
             rawLayer.hide();
         }
 
-        function makeMapped(coorArray) {
+        function makeMapped(coorArrays) {
 
-            let geo = [];
-            coorArray.forEach(coor=>{
-                geo.push([coor.lng, coor.lat])
+            let trajs = [];
+
+            coorArrays.forEach((coorArray) => {
+                let geo = [];
+                coorArray.forEach(coor => {
+                    geo.push([coor.lng, coor.lat])
+                });
+
+                //gen mapVformat
+                trajs.push({
+                    geometry: {
+                        type: "LineString",
+                        coordinates: geo
+                    },
+                });
             });
-
-            //gen mapVformat
-            let trajs =  [{
-                geometry: {
-                    type: "LineString",
-                    coordinates:geo
-                },}];
 
             if (!mappedLayer) {
                 console.log(trajs);
@@ -643,10 +707,29 @@
             mappedLayer.hide();
         }
 
+
+        //todo similarity scroll area
+        let clusterize_sim = new Clusterize({
+            scrollId: 'topK_scrollArea',
+            contentId: 'topK_contentArea',
+            rows_in_block:15,
+            blocks_in_cluster:2,
+        });
+
+        //todo combination scroll area
+        let clusterize_com = new Clusterize({
+           scrollId: 'combined_scrollArea',
+           contentId: 'combined_contentArea',
+           rows_in_block:15,
+           blocks_in_cluster:2,
+        });
+
+
+        //todo result scroll area
         let displayed;
-        let clusterize = new Clusterize({
-            scrollId: 'scrollArea',
-            contentId: 'contentArea',
+        let clusterize_ret = new Clusterize({
+            scrollId: 'ret_scrollArea',
+            contentId: 'ret_contentArea',
             rows_in_block:100,          // displayOnInit 100 records each time
             blocks_in_cluster:2,
             callbacks:{
@@ -657,9 +740,6 @@
                     let progress = calc_progress(percentage);
                     curClusterId = calc_cluster(progress);
 
-                    console.log("percentage: "+percentage);
-                    // console.log("percentage: "+percentage);
-                    // console.log("percentage for p bar: "+percentageForPBar)
                     $('#progressBar').css('width', percentageForPBar+'%')
                         .attr('aria-valuenow', percentageForPBar)
                         .text(percentageForPBar.toFixed(2)+"%");
@@ -699,7 +779,7 @@
                         return;
                     }
 
-                    let progress = calc_progress(clusterize.getScrollProgress());
+                    let progress = calc_progress(clusterize_ret.getScrollProgress());
                     if (progress ===0 ) return;
 
                     let curCluster = calc_cluster(progress);
@@ -724,7 +804,7 @@
         $('.nav').slideAndSwipe();
         $('.retPanel').hide();
         $("#btn_nav").click();
-        console.log(URL_PREFIX+INIT_FILE);
+
         $.ajax({
             url: URL_PREFIX+INIT_FILE,
             dataType:'json',
@@ -788,8 +868,8 @@
             isOpen: false,                          // disable drawing mode
             enableDrawingTool: true,                // displayOnInit tool bar
             drawingToolOptions: {
-                anchor: BMAP_ANCHOR_BOTTOM_RIGHT,      // position of the tool bar
-                offset: new BMap.Size(60, 40),        // offset from the position
+                anchor: BMAP_ANCHOR_TOP_RIGHT,      // position of the tool bar
+                offset: new BMap.Size(130, 60),        // offset from the position
                 scale: 0.8,
                 drawingModes: [                    // functions on tool bar
                     // BMAP_DRAWING_MARKER,
@@ -803,66 +883,69 @@
             rectangleOptions: rectStyle
         });
 
+        //todo complete line
         let lineComplete = function(line){
 
-            if (curBtnState === RANGE_SEARCH) {
-                badInfo("System detected the line, you might want to perform a query other than RangeSearch");
-                // $('#btn0').click();
-                // curBtnState = SIMILARITY_SEARCH;
-                let time = 500;
-                for (let i = 0; i < 8;i++) {
-                    setTimeout(()=>{$('.btnShine').toggleClass("shine")}, time*i);
-                }
-            }
+            let point = line.getPath()[0];
+            let opts = {
+                position : point,
+            };
+            let label = new BMap.Label("path: "+line_polygons.length, opts);
+            label.setStyle({
+                color : "red",
+                fontSize : "15px",
+                height : "0px",
+                width: "0px"
+            });
+            map.addOverlay(label);
 
-                let temp = line.getPath();
-                let path = "[";
-                temp.forEach((item) => {
-                    path += "[" + item.lat + "," + item.lng + "],"
-                });
-                path = path.substr(0, path.length - 1);
-                path += "]";
-                $("#input").val(path);
+            line_label.push(label);
+            line_polygons.push(line);
+
+            clusterize_sim.prepend([toSimLine(line)]);
+            clusterize_com.prepend([toComline(line)]);
+
+            setClickable();
+
+            counter_line++;
         };
 
+        //todo complete other
         let rectComplete = function (rect) {
 
-            if (curBtnState !== RANGE_SEARCH) {
-                $('#btn1').click();
-                badInfo("System detected the window and query type is set to RangeQuery.");
-                curBtnState = RANGE_SEARCH;
-            }
-
-            // 0 -- upper left
-            // 1 -- upper right
-            // 2 -- lower right
-            // 3 -- lower left
-            let pStart = new BMap.Point(rect.getPath()[0].lng, rect.getPath()[0].lat);
-            let pEnd = new BMap.Point(rect.getPath()[2].lng, rect.getPath()[2].lat);
-            rectangle = new BMap.Polygon([
-                new BMap.Point(pStart.lng, pStart.lat),
-                new BMap.Point(pEnd.lng, pStart.lat),
-                new BMap.Point(pEnd.lng, pEnd.lat),
-                new BMap.Point(pStart.lng, pEnd.lat)
-            ], {strokeColor: 'rgba(255,255,255, 0.01)', strokeWeight: 1, strokeOpacity: 0.1});
-
-            let temp = [
-                rect.getPath()[0],
-                rect.getPath()[2]
-            ];
-            let window = "[";
-            temp.forEach((item) => {
-                window += "[" + item.lat + "," + item.lng + "],"
+            let point = new BMap.Point((rect.getPath()[0].lng + rect.getPath()[2].lng)/2, (rect.getPath()[0].lat + rect.getPath()[2].lat) / 2);
+            let opts = {
+                position : point,
+            };
+            let label = new BMap.Label("window: "+rect_polygons.length, opts);
+            label.setStyle({
+                color : "red",
+                fontSize : "15px",
+                height : "0px",
+                width: "0px"
             });
-            window = window.substr(0, window.length - 1);
-            window += "]";
-            $("#input").val(window);
+            map.addOverlay(label);
+
+            rect_label.push(label);
+            rect_polygons.push(rect);
+
+            clusterize_com.prepend([toRect(rect)]);
+
+            setClickable();
+
+            counter_rect++;
         };
 
         drawer.addEventListener("polylinecomplete", lineComplete);
 
         drawer.addEventListener("rectanglecomplete", rectComplete);
 
+        //todo add street name button
+        $('#btn_street').click(()=>{
+            clusterize_com.prepend([toStreetName($('#input_street').val())]);
+            setClickable();
+
+        });
 
         $('#showRaw').change(function(){
             if($(this).is(':checked')) {
@@ -896,75 +979,49 @@
             }
         });
 
+
         $("#btnClear").click(()=>{
-            clear1();
+            clearAll();
         });
 
-        $("#btnSearch").click(()=>{
-            
-            let url = URL_PREFIX + apiMap[curBtnState];
-            let data;
+        //todo sim search button
+        $("#sim_search").click(()=>{
+
+            let url = URL_PREFIX + API_SIM;
             console.log(url);
-            let inputVal = $("#input").val();
-            if (curBtnState === RANGE_SEARCH){
-                console.log(inputVal.length);
-                if (inputVal.length === 0) {
-                    badInfo("A window for the query is required!");
-                    return;
-                }
 
-                if (inputVal.split("],[").length !== 2) {
-                    badInfo("A window is defined by an upper left point and a lower right point");
-                    return;
-                }
-                data = {query: inputVal};
-            } else {
+            let data;
 
-                if (inputVal.length === 0) {
-                    badInfo("A path for the query is required!");
-                    return;
-                }
+            let idx = parseInt($('input[name=sim]:checked').val());
+            console.log("index: " + idx);
+            let temp = line_polygons[idx].getPath();
 
-                if (curBtnState === SIMILARITY_SEARCH) {
-                    if (inputVal.split("],[").length < 2) {
-                        badInfo("A path is defined by two or more points.\n Format: [[lat, lng],[lat, lng],[lat, lng]...]");
-                        return;
-                    }
+            let path = "[";
+            temp.forEach((item) => {
+                path += "[" + item.lat + "," + item.lng + "],"
+            });
+            path = path.substr(0, path.length - 1);
+            path += "]";
 
-                    let k = 15;
-                    let input  = $('#k').val();
-                    if ( input.length !== 0){
-                        let temp = Number(input);
-                        if (temp)
-                            k = temp;
-                    }
+            console.log("line: " + path);
 
-                    let epsilon = 50;
-                    input = $('#epsilon').val();
-                    if (input.length !== 0){
-                        let temp = parseInt(input);
-                        if (temp)
-                            epsilon = temp;
-                    }
+            let start = $('#start_time').val();
+            let end = $('#end_time').val();
 
-                    let index = $('.indexGroup option:selected').val();
-                    let simFunc = ($('.simGroup option:selected').val());
-                    
-                    data = {
-                        query: inputVal,
-                        k: k,
-                        index: index,
-                        measure: simFunc,
-                        epsilon : epsilon
-                    };
+            let k = parseInt($('#input_k').val());
 
-                }else {
-                    if (inputVal.split("],[").length === 1)
-                        data = {name:inputVal};
-                    else
-                        data = {query: inputVal};
-                }
-            }
+            let epsilon = $('#input_epsilon').val();
+
+            let simFunc = ($('.simGroup option:selected').val());
+
+            data = {
+                query: path,
+                k: k,
+                measure: simFunc,
+                epsilon: epsilon,
+                start: start,
+                end: end
+            };
 
             console.log(data);
 
@@ -977,7 +1034,21 @@
                 cache: false,
                 type: "GET",
                 success: function(res) {
-                    // clear1();
+                    // clearAll();
+
+                    $('.path_checkable').each(function(i, obj){
+                        let btn = $(this);
+                        if (btn.text() === "on display"){
+                            let temp = btn.attr("value");
+                            let index = parseInt(temp);
+                            console.log(index);
+                            line_polygons[index].hide();
+                            line_label[index].hide();
+                            btn.text('on hide');
+                            btn.addClass('btn-secondary').removeClass('btn-success');
+                        }
+                    });
+
                     console.log(res);
                     if (!res.formatCorrect) {
                         badInfo("Query is not in the right format. Please do double check!");
@@ -996,8 +1067,8 @@
                         return;
                     }
 
-                    clear1();
-                    
+                    clearRetPanel();
+
                     if (retSize > 100){
                         goodInfo("There are "+retSize+" of qualified trajectories found, 100 of them are displayed.");
                     } else{
@@ -1009,29 +1080,25 @@
                     for (let i = 0; i < ids.length; i++)
                         slot[i] = false;
 
-                    if (res.queryType === "RQ"){
-                        $("#nonRQ").hide();
-                    }else{
-                        $("#nonRQ").show();
-                        makeRaw(retObj.rawTrajectory);
-                        makeMapped(retObj.mappedTrajectory);
-                        if ($('#showRaw').is(':checked')) rawLayer.show();
-                        if ($('#showMapped').is(':checked')) mappedLayer.show();
-                    }
+                    $("#nonRQ").show();
+                    makeRaw([retObj.rawTrajectory]);
+                    makeMapped([retObj.mappedTrajectory]);
 
-                    if (res.queryType === "TK") {
-                        console.log(res.queryType);
-                        ids.reverse();
-                    }
+                    if ($('#showRaw').is(':checked')) rawLayer.show();
+                    if ($('#showMapped').is(':checked')) mappedLayer.show();
 
-                    clusterize.append(toListData(ids));
+                    console.log(res.queryType);
+                    ids.reverse();
+
+
+                    clusterize_ret.append(toRetListData(ids));
 
                     downloadFullTraj(curClusterId, true);
                     maxClusterId = calc_cluster(ids.length - 1);
                     $("#retSize").text(ids.length);
                     $(".retPanel").show();
 
-                    $('.checkable').click((e)=>{
+                    $('.ret_checkable').click((e)=>{
                         let index = parseInt($(e.target).attr("value"));
                         $('#hideRet').prop('checked', false); // Unchecks it
                         displaySingle(index);
@@ -1043,6 +1110,227 @@
             });
         });
 
+
+        $('#bool_search').click(()=>{
+
+            let url = URL_PREFIX + API_MULTI;
+            console.log(url);
+
+            let items = [];
+            let start = $('#start_time').val();
+            let end = $('#end_time').val();
+
+            let hasQuery = false;
+
+            $('input[type="checkbox"][name="com_line"]:checked').map(function() {
+                hasQuery = true;
+
+                let idx = parseInt($(this).val());
+                let temp = line_polygons[idx].getPath();
+
+                let path = "[";
+                temp.forEach((item) => {
+                    path += "[" + item.lat + "," + item.lng + "],"
+                });
+                path = path.substr(0, path.length - 1);
+                path += "]";
+
+                let type;
+                if ( $('.state_strict[value="'+ idx +'"]').text()==='loose'){
+                    type = 'PQ';
+                }else{
+                    type = 'SPQ';
+                }
+
+                items.push({
+                    type:type,
+                    query: path
+                })
+            });
+
+            let selectedWindow_index_set = new Set();
+            $('input[type="checkbox"][name="com_rect"]:checked').map(function() {
+                hasQuery = true;
+
+                let idx = parseInt($(this).val());
+                selectedWindow_index_set.add(idx);
+                let temp = rect_polygons[idx].getPath();
+
+                let temp1 = [
+                    temp[0],
+                    temp[2]
+                ];
+
+                let window = "[";
+                temp1.forEach((item) => {
+                    window += "[" + item.lat + "," + item.lng + "],"
+                });
+                window = window.substr(0, window.length - 1);
+                window += "]";
+
+                console.log("idx: " + idx);
+                console.log("window: " + window);
+                items.push({
+                    type:'RQ',
+                    query: window
+                })
+            });
+
+            $('input[type="checkbox"][name="com_st"]:checked').map(function() {
+                hasQuery = true;
+
+                let st_name = $(this).val();
+                console.log("street name: " + st_name);
+                let type;
+                if ( $('.state_strict[value="'+ st_name +'"]').text()==='loose'){
+                    type = 'NPQ';
+                }else{
+                    type = 'NSPQ';
+                }
+                items.push(({
+                    type:type,
+                    query: st_name
+                }))
+            });
+
+            let data = {
+                items: JSON.stringify(items),
+                start: start,
+                end: end
+            };
+
+            if (!hasQuery){
+                badInfo("please select one query at least!");
+                return;
+            }
+
+            clearRetPanel();
+
+            $.ajax({
+                url: url,
+                data: data,
+                dataType:'json',
+                cache: false,
+                type: "GET",
+                contentType:"application/json",
+                success: function(res) {
+
+                    $('.path_checkable').each(function(i, obj){
+                        let btn = $(this);
+                        if (btn.text() === "on display"){
+                            let temp = btn.attr("value");
+                            let index = parseInt(temp);
+                            console.log(index);
+                            line_polygons[index].hide();
+                            line_label[index].hide();
+                            btn.text('on hide');
+                            btn.addClass('btn-secondary').removeClass('btn-success');
+                        }
+                    });
+
+                    $('.rect_checkable').each(function(i, obj){
+                       let btn = $(this);
+                       let index = parseInt(btn.attr("value"));
+
+                       if (!selectedWindow_index_set.has(index) && btn.text() === "on display"){
+                           btn.click();
+                       }
+
+                    });
+
+                    // clearAll();
+                    console.log(res);
+                    let hasPathQ = false;
+                    let raw = [];
+                    let mapped = [];
+                    let set1 = new Set();
+                    let set2 = new Set();
+
+                    let counter = 1;
+                    res.forEach((ret) => {
+                        if (ret.queryType !== "RQ") {
+
+                                hasPathQ = true;
+
+                            if (ret.retObj.mappingSucceed){
+                                raw.push(ret.retObj.rawTrajectory);
+                                mapped.push(ret.retObj.mappedTrajectory);
+
+                                if (counter === 1) {
+                                    ret.retObj.ids.forEach((id) => {
+                                        set1.add(id);
+                                    })
+                                } else {
+                                    set2 = new Set();
+                                    ret.retObj.ids.forEach((id) => {
+                                        if (set1.has(id)) {
+                                            set2.add(id);
+                                        }
+                                    });
+                                    set1 = set2;
+                                }
+                            }
+                        }else{
+                            if (counter === 1) {
+                                ret.retObj.ids.forEach((id) => {
+                                    set1.add(id);
+                                })
+                            } else {
+                                set2 = new Set();
+                                ret.retObj.ids.forEach((id) => {
+                                    if (set1.has(id)) {
+                                        set2.add(id);
+                                    }
+                                });
+                                set1 = set2;
+                            }
+                        }
+                        counter++;
+                    });
+
+                    ids = Array.from(set1);
+                    console.log(ids.length);
+                    console.log(ids);
+
+                    if (hasPathQ) {
+                        makeRaw(raw);
+                        makeMapped(mapped);
+                        $("#nonRQ").show();
+
+                        if ($('#showRaw').is(':checked')) rawLayer.show();
+                        if ($('#showMapped').is(':checked')) mappedLayer.show();
+
+                    }
+                    
+                    if (ids.length > 100){
+                        goodInfo("There are "+ids.length+" of qualified trajectories found, 100 of them are displayed.");
+                    } else{
+                        goodInfo("There are "+ids.length+" of qualified trajectories found.")
+                    }
+
+                    console.log("ids: "+ids);
+                    for (let i = 0; i < ids.length; i++)
+                        slot[i] = false;
+
+                    clusterize_ret.append(toRetListData(ids));
+
+                    downloadFullTraj(curClusterId, true);
+                    maxClusterId = calc_cluster(ids.length - 1);
+                    $("#retSize").text(ids.length);
+                    $(".retPanel").show();
+
+                    $('.ret_checkable').click((e)=>{
+                        let index = parseInt($(e.target).attr("value"));
+                        $('#hideRet').prop('checked', false); // Unchecks it
+                        displaySingle(index);
+                    });
+                },
+                error: function(xhr) {
+                    console.log(xhr)
+                    badInfo("server unavailable");
+                }
+            });
+        })
     });
 </script>
 </body>

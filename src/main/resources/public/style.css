@@ -1,0 +1,188 @@
+.btnShine {
+    -webkit-transition: .6s;
+    transition: .6s;
+    overflow: hidden;
+}
+.btnShine:focus {
+    outline: 0;
+}
+.btnShine:before {
+    content: '';
+    background: rgba(255, 255, 255, 0.5);
+    opacity: .5;
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+}
+.btnShine:after {
+    content: '';
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+}
+.btnShine.shine, .btnShine:hover {
+    background: rgb(247, 226, 2);
+    cursor: pointer;
+}
+.btnShine.shine:before, .btnShine:hover:before {
+    opacity: 0.6;
+    -webkit-transition: .7s;
+    transition: .7s;
+}
+.btnShine.shine:after, .btnShine:hover:after {
+    opacity: 1;
+    -webkit-transition: .7s;
+    transition: .7s;
+}
+
+th {
+    text-align: left;
+}
+
+label {
+    display: inline-block;
+    text-align: right;
+    font-size: .8rem;
+    width: 10%;
+}
+
+.extsmall {
+    transform: scale(0.7, 0.7);
+    -ms-transform: scale(0.7, 0.7); /* IE 9 */
+    -webkit-transform: scale(0.7, 0.7); /* Safari and Chrome */
+    -o-transform: scale(0.7, 0.7); /* Opera */
+    -moz-transform: scale(0.7, 0.7); /* Firefox */
+}
+
+.small {
+    transform: scale(0.8, 0.8);
+    -ms-transform: scale(0.8, 0.8); /* IE 9 */
+    -webkit-transform: scale(0.8, 0.8); /* Safari and Chrome */
+    -o-transform: scale(0.8, 0.8); /* Opera */
+    -moz-transform: scale(0.8, 0.8); /* Firefox */
+}
+
+.large {
+    transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1); /* IE 9 */
+    -webkit-transform: scale(1.1, 1.1); /* Safari and Chrome */
+    -o-transform: scale(1.1, 1.1); /* Opera */
+    -moz-transform: scale(1.1, 1.1); /* Firefox */
+}
+
+hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav {
+    margin-top: 6%;
+    height: 600px;
+    margin-bottom: 3%;
+    width: 320px;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    overflow-y: auto;
+    overflow-x: visible;
+    transform: translate(-320px,0);
+    background-color: rgba(255,255,255,0.5);
+    position: fixed;
+}
+
+.checkable{
+
+}
+
+.retPanel{
+    margin-top: 5px;
+}
+.ssm-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1;
+}
+
+/* Hide default counters */
+ol.clusterize-content {
+    counter-reset: clusterize-counter;
+    list-style: none;
+    padding-left: 10px;
+}
+
+/* Increment counter for every row */
+ol.clusterize-content li{
+    margin: 0 0 0.5rem 0;
+    counter-increment: clusterize-counter;
+    position: relative;
+}
+
+/* Display counter and customize it's styling whatever you like */
+ol.clusterize-content li:before {
+    content: counter(clusterize-counter) "th trajID: " ;
+    position: absolute;
+    top: 3px;
+    left: 5%;
+    padding: 0px 7px;
+    line-height: 15px;
+    font-size: 10px;
+    border-radius: 10px;
+    background: #9fd3e8;
+    border: 1px solid rgba(0, 140, 186, 0.5);
+}
+
+/* ************************************************* */
+
+/* max-height - the only parameter in this file that needs to be edited.
+ * Change it to suit your needs. The rest is recommended to leave as is.
+ */
+.clusterize-scroll{
+    overflow: auto;
+}
+
+/**
+ * Avoid vertical margins for extra tags
+ * Necessary for correct calculations when rows have nonzero vertical margins
+ */
+.clusterize-extra-row{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* By default extra tag .clusterize-keep-parity added to keep parity of rows.
+ * Useful when used :nth-child(even/odd)
+ */
+.clusterize-extra-row.clusterize-keep-parity{
+    display: none;
+}
+
+/* During initialization clusterize adds tabindex to force the browser to keep focus
+ * on the scrolling list, see issue #11
+ * Outline removes default browser's borders for focused elements.
+ */
+.clusterize-content{
+    outline: 0;
+}
+
+/* Centering message that appears when no data provided
+ */
+.clusterize-no-data td{
+    text-align: center;
+}
