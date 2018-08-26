@@ -1,9 +1,9 @@
 package au.edu.rmit.bdm.TTorchServer;
 
-import au.edu.rmit.bdm.TTorch.base.Torch;
-import au.edu.rmit.bdm.TTorch.base.model.Coordinate;
-import au.edu.rmit.bdm.TTorch.base.model.TrajEntry;
-import au.edu.rmit.bdm.TTorch.queryEngine.query.QueryResult;
+import au.edu.rmit.bdm.Torch.base.Torch;
+import au.edu.rmit.bdm.Torch.base.model.Coordinate;
+import au.edu.rmit.bdm.Torch.base.model.TrajEntry;
+import au.edu.rmit.bdm.Torch.queryEngine.query.QueryResult;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

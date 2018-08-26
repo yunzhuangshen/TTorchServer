@@ -1,6 +1,6 @@
 package au.edu.rmit.bdm.TTorchServer;
 
-import au.edu.rmit.bdm.TTorch.base.model.Coordinate;
+import au.edu.rmit.bdm.Torch.base.model.Coordinate;
 
 import java.util.LinkedList;
 import java.util.List;

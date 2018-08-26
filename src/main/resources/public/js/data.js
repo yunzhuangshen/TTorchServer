@@ -3,7 +3,6 @@ const URL_PREFIX = "http://43.240.96.2" + APP_NAME;
 const TRAJ_ID_API = "/API/ID";
 const API_SIM = "/API/TKQ";
 const API_MULTI = "/API/MULTI";
-
 const INIT_FILE = "/data/init.txt";
 
 // for remember current state
@@ -21,6 +20,11 @@ let ids = [];
 let map_data = [];
 let slot = [];
 let hide = false;
+
+let reprepLayer;
+let reprepAniLayer;
+let reprepData;
+let reprepAniData;
 
 let rawLayer;
 let mappedLayer;
