@@ -3,11 +3,11 @@ package au.edu.rmit.bdm.TTorchServer;
 
 import au.edu.rmit.bdm.Torch.base.Torch;
 import au.edu.rmit.bdm.Torch.base.model.TrajEntry;
-import au.edu.rmit.bdm.Torch.clustering.kpaths.Process;
 import au.edu.rmit.bdm.Torch.queryEngine.Engine;
 import au.edu.rmit.bdm.Torch.queryEngine.model.SearchWindow;
 import au.edu.rmit.bdm.Torch.queryEngine.model.TimeInterval;
 import au.edu.rmit.bdm.Torch.queryEngine.query.QueryResult;
+import au.edu.rmit.bdm.clustering.trajectory.kpaths.Yinyang;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +17,10 @@ import java.util.*;
 class API {
     private Engine beijingEngine;
     private Engine portoEngine;
+
+    private Yinyang beijingClustering;
+    private Yinyang portoClustering;
+
     private Logger logger;
 
     API(){
@@ -25,22 +29,23 @@ class API {
 
         beijingEngine = Engine.getBuilder().
                 resolveResult(false).
-                baseDir("Torch_Porto").
+                baseDir("Torch_Beijing").
                 URIprefix(basePath).
                 build();
 
         portoEngine = Engine.getBuilder().
                 resolveResult(false).
-                baseDir("Torch_Beijing").
+                baseDir("Torch_Porto").
                 URIprefix(basePath).
                 build();
 
         try {
             //todo clustering code
-            Process.init();
+            beijingClustering = new Yinyang(beijingEngine.getFileSettings(), 100000);
+            portoClustering = new Yinyang(portoEngine.getFileSettings(), 200000);
             logger.info("init process success!");
-        } catch (IOException e) {
-            logger.info("error in init process(clustering)");
+        } catch (Exception e) {
+            logger.info("error in init clustering");
         }
     }
 
@@ -151,22 +156,34 @@ class API {
     String clustering(Set<Integer> ids, int k, String city){
 
         try {
-            int[] clusters = Process.clustering(ids, k);
+            int[] clusters = null;
+
+            if (city.equalsIgnoreCase(TorchServer.PORTO))
+                clusters = portoClustering.clustering(ids, k);
+            else if(city.equalsIgnoreCase(TorchServer.BEIJING))
+                clusters = beijingClustering.clustering(ids, k);
+
             return resolveIDs(clusters, city);
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             logger.info("error when clustering");
         }
+
         return "";
     }
 
     String resolveIDs(String idSet, String city) {
-        return beijingEngine.resolve(jsonArr2intArr(idSet)).getRetMapVformat();
+        return resolveIDs(jsonArr2intArr(idSet), city);
     }
 
     private String resolveIDs(int[] idSet, String city){
+        if (city.equalsIgnoreCase(TorchServer.BEIJING))
+            return beijingEngine.resolve(idSet).getRetMapVformat();
+        else if(city.equalsIgnoreCase(TorchServer.PORTO))
+            return portoEngine.resolve(idSet).getRetMapVformat();
 
-        return beijingEngine.resolve(idSet).getRetMapVformat();
+        logger.error("unidentified city name {} in resolveID", city);
+        return null;
     }
 
     private int[] jsonArr2intArr(String idSet){

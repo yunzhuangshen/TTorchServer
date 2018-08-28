@@ -19,7 +19,7 @@
 <nav class="nav" >
 
     <div style="width: 100%; height: 40%; position: relative">
-        <img style=" margin-left:88%; margin-top:3px; max-width: 45px; max-height: 35px" src="img/swipe.png"
+        <img style=" margin-left:88%; margin-top:3px; max-width: 45px; max-height: 35px" src="./img/swipe.png"
              alt="swipe image"/>
         <button style="width: 100%; margin-top: -64px " type="button" class="btn btn-success" disabled>
             Time span
@@ -194,16 +194,24 @@
 <div style="position:absolute; margin-top: 20px; margin-left: 20px; z-index:3">
     <a href="#" id="btn_nav" class="btn btn-outline-info ssm-toggle-nav"
        style="padding-bottom: 1px; padding-left: 10px; padding-right: 10px; float: left; height: 38px">
-        <object id="svg1" data="img/gear.svg" type="image/svg+xml" style="padding-right: 3px"></object>
+        <object id="svg1" data="./img/gear.svg" type="image/svg+xml" style="padding-right: 3px"></object>
         Search Panel
     </a>
 
     <button class="btn btn-outline-danger" id="btnClear" type="button" style="margin-left: 5px">Clear All</button>
 </div>
-
+<div class="dropdown" style="position:absolute; margin-top: 20px; margin-left:45%; z-index: 4 ">
+    <button class="btn btn-light dropdown-toggle" type="button" id="cityMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="cityMenu">
+        <a class="dropdown-item" href="#" >Beijing</a>
+        <a class="dropdown-item" href="#">Porto</a>
+    </div>
+</div>
 <div style="position:absolute; top: 40px; width: 70%; margin-left:15%; margin-right: 15%; z-index:3">
     <div id="info" class="alert alert-warning" role="alert"
-         style="height: 45px;position:absolute; z-index:3; margin-top: 10px; margin-left: 25%; margin-right: 25%; width: 55%; font-size: medium; text-align:center; display: none ">
+         style="height: 45px;position:absolute; z-index:3; margin-top: 25px; margin-left: 25%; margin-right: 25%; width: 55%; font-size: medium; text-align:center; display: none">
     </div>
 </div>
 <div style=" height: 100%; width: 100%" id="map"></div>
@@ -213,9 +221,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
-        integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=o55gGAr8In322oxznMl5cojFABFo5hjE"></script>
 <script type="text/javascript"
         src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
@@ -300,7 +307,7 @@
             '<button  class="btn btn-primary btn-xs state_strict" style="font-size: x-small" value="'+counter_line+'">loose</button>' +
             '</td>'+
             '<td width="50px" style="padding-bottom: 0.5ex">' +
-            '<input name="com_line" type="checkbox" value="'+ counter_line + '">' +
+            '<input name="com_line" type="checkbox" value="'+ counter_line + '" checked>' +
             '</td>' +
             '</tr>';
 
@@ -530,7 +537,10 @@
 
             $.ajax({
                 url: url,
-                data: {idSet : JSON.stringify(arr)},
+                data: {
+                    idSet : JSON.stringify(arr),
+                    city : curCity
+                },
                 dataType:'json',
                 cache: false,
                 type: "GET",
@@ -549,22 +559,24 @@
             });
         }
 
-        function displayOnInit(trajs){
+        function displayOnInit(trajs, slice, num){
             //random select 100 trajectories
-            let rand = getRandomInt(0, 1);
-            let begin = rand * 100;
-            let end = (rand + 2) * 100;
-            trajs = trajs.slice(begin, end);
+            if (slice) {
+                let rand = getRandomInt(0, 1);
+                let begin = rand * 100;
+                let end = (rand + 2) * 100;
+                trajs = trajs.slice(begin, end);
+            }
 
 
             let times = [];
-            for (let k = 0; k < 100; k++){
+            for (let k = 0; k < num; k++){
                 let traj = trajs[k];
                 let coordsArr = traj.geometry.coordinates;
                 let i;
                 let random1 = getRandomInt(0,20);
                 let random2 = 10;
-                if (k<50) {
+                if (k < num / 2) {
                     for (i = 0; i < coordsArr.length; i++) {
                         times.push({
                             geometry: {
@@ -740,7 +752,7 @@
                 reprepAniLayer.hide();
                 $('#showRep').prop('checked', false);
             }
-
+            
             singleLineLayer.show();
             singleAnimationLayer.show();
 
@@ -804,7 +816,6 @@
             }
             mappedLayer.hide();
         }
-
 
         //todo similarity scroll area
         let clusterize_sim = new Clusterize({
@@ -918,7 +929,7 @@
             cache: false,
             type: "GET",
             success: function(res) {
-                displayOnInit(res);
+                displayOnInit(res, true, 100);
             },
 
             error: function(xhr) {
@@ -988,6 +999,55 @@
             },
             polylineOptions: pathStyle,
             rectangleOptions: rectStyle
+        });
+
+        //todo change city
+        $('#cityMenu').text("City: Porto");
+        $('.dropdown .dropdown-menu .dropdown-item').click(function(){
+            let text = $(this).text();
+            if (text === "Beijing"){
+                if (curCity !== BEIJING) {
+                    clearAll();
+                    map.centerAndZoom(new BMap.Point(116.3975, 39.9087), 12);  // 初始化地图,设置中心点坐标和地图级别
+                    curCity = BEIJING;
+                    $.ajax({
+                        url: URL_PREFIX+BEIJING_FILE,
+                        dataType:'json',
+                        cache: false,
+                        type: "GET",
+                        success: function(res) {
+                            displayOnInit(res, false, 60);
+                        },
+
+                        error: function(xhr) {
+                            console.log("error message: ");
+                            console.log(xhr);
+                        }
+                    });
+                }
+            }else if(text === "Porto"){
+                if (curCity !== PORTO) {
+                    clearAll();
+                    curCity = PORTO;
+                    map.centerAndZoom(new BMap.Point(-8.594061, 41.162726), 13);  // 初始化地图,设置中心点坐标和地图级别
+                    $.ajax({
+                        url: URL_PREFIX+PORTO_FILE,
+                        dataType:'json',
+                        cache: false,
+                        type: "GET",
+                        success: function(res) {
+                            displayOnInit(res, false, 60);
+                        },
+
+                        error: function(xhr) {
+                            console.log("error message: ");
+                            console.log(xhr);
+                        }
+                    });
+                }
+            }
+            console.log(curCity);
+            $('#cityMenu').text("City: " + text);
         });
 
         //todo complete line
@@ -1141,7 +1201,8 @@
                 measure: simFunc,
                 epsilon: epsilon,
                 start: start,
-                end: end
+                end: end,
+                city: curCity
             };
 
             console.log(data);
@@ -1321,7 +1382,8 @@
             let data = {
                 items: JSON.stringify(items),
                 start: start,
-                end: end
+                end: end,
+                city: curCity
             };
 
             if (!hasQuery){

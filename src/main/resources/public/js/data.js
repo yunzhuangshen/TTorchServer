@@ -4,6 +4,13 @@ const TRAJ_ID_API = "/API/ID";
 const API_SIM = "/API/TKQ";
 const API_MULTI = "/API/MULTI";
 const INIT_FILE = "/data/init.txt";
+const BEIJING_FILE = "/data/beijing.txt";
+const PORTO_FILE = "/data/porto.txt";
+const BEIJING = "b";
+const PORTO = "p";
+
+// current city
+let curCity = PORTO;
 
 // for remember current state
 let counter_line = 0;
